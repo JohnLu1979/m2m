@@ -1,0 +1,67 @@
+﻿@using Abp.Application.Navigation
+@using Abp.Collections.Extensions
+@using Abp.Extensions
+@using MyTempProject.Web.Views
+@model MyTempProject.Web.Models.Layout.HeaderViewModel
+@helper ShowMenuItemRecursively(UserMenuItem menuItem, int currentLevel)
+{
+    <li class="@(menuItem.Name == Model.CurrentPageName ? "active" : "") @(menuItem.Items.IsNullOrEmpty() ? "" : (currentLevel == 0 ? "dropdown" : "dropdown-submenu"))">
+        @if (menuItem.Items.IsNullOrEmpty())
+        {
+            if (!menuItem.Url.IsNullOrEmpty())
+            {
+                <a href="@(UrlChecker.IsRooted(menuItem.Url) ? menuItem.Url : (ApplicationPath + menuItem.Url))">@menuItem.DisplayName</a>
+            }
+            else
+            {
+                <a href="@ApplicationPath">@menuItem.DisplayName</a>
+            }
+        }
+        else
+        {
+            <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="javascript:;">
+                @menuItem.DisplayName
+            </a>
+            <ul class="dropdown-menu">
+                @foreach (var childMenuItem in menuItem.Items)
+                {
+                    @ShowMenuItemRecursively(childMenuItem, currentLevel + 1)
+                }
+            </ul>
+        }
+    </li>
+}
+<div class="pre-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 additional-shop-info">
+                <ul class="list-unstyled list-inline">
+                    <li><i class="fa fa-phone"></i><span>+1 456 6717</span></li>
+                    <li><i class="fa fa-envelope-o"></i><span>info@mydomain.com</span></li>
+                </ul>
+            </div>
+            <div class="col-md-6 col-sm-6 additional-nav">
+                <ul class="list-unstyled list-inline pull-right">
+                    <li>
+                        @if (Model.LoginInformations != null)
+                        {
+                            <a href="@Url.Action("Index", "Application")">@Model.GetShownLoginName() (@L("GoToApplication"))</a>
+                        }
+                        else
+                        {
+                            <a href="@Url.Action("Login", "Account")">@L("LogIn")</a>
+                        }
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="header">
+    <div class="container">
+        <a class="site-logo" href="@Url.Action("Index", "Home")">
+            <img src="~/Common/Images/header_logo.png" alt="" width="380" height="60" />
+        </a>
+        
+    </div>
+</div>

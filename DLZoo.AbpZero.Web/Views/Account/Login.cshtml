@@ -1,0 +1,200 @@
+﻿@using System.Globalization
+@using Abp.Extensions
+@using Abp.Web.Mvc.Extensions
+@using Microsoft.Owin.Security
+@using MyTempProject.MultiTenancy
+@using System.Web.Optimization
+@using Abp.Timing
+@using MyTempProject.Localization
+@using MyTempProject.Web.Bundling
+@model MyTempProject.Web.Models.Account.LoginFormViewModel
+
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset=utf-8 />
+    <title>*****S</title>
+
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    @* Fill these meta tags upon your project specification *@
+    <meta content="AbpZeroTemplate" name="description">
+    <meta content="AbpZeroTemplate" name="keywords">
+    <meta content="AbpZeroTemplate" name="author">
+    @Html.IncludeStyle(StylePaths.FontAwesome)
+    @Html.IncludeStyle(StylePaths.Simple_Line_Icons)
+    @Html.IncludeStyle(CultureHelper.IsRtl ? StylePaths.BootstrapRTL : StylePaths.Bootstrap)
+    @Html.IncludeStyle(StylePaths.JQuery_Uniform)
+    @Html.IncludeStyle(StylePaths.Toastr)
+    @Html.IncludeStyle(StylePaths.SweetAlert)
+    @Html.IncludeStyle(StylePaths.FamFamFamFlags)
+    @Html.IncludeStyle("~/metronic/assets/global/css/components-md" + (CultureHelper.IsRtl ? "-rtl" : "") + ".css")
+    @Html.IncludeStyle("~/metronic/assets/global/css/plugins-md" + (CultureHelper.IsRtl ? "-rtl" : "") + ".css")
+    @Html.IncludeStyle("~/metronic/assets/admin/layout/css/layout" + (CultureHelper.IsRtl ? "-rtl" : "") + ".css")
+    @Html.IncludeStyle("~/metronic/assets/admin/layout/css/themes/default" + (CultureHelper.IsRtl ? "-rtl" : "") + ".css")
+
+    @Styles.Render("~/Bundles/Common/css")
+
+    @Html.IncludeStyle("~/Views/Account/_Layout" + (CultureHelper.IsRtl ? "-rtl" : "") + ".css")
+
+    @Html.IncludeStyle("~/Views/Account/Login/css/main.css")
+        @Html.IncludeStyle("~/Views/Account/Login/css/main.css")
+        @Html.IncludeScript("~/Views/Account/Login/Login.js")
+
+
+    <script type="text/javascript">
+        var abp = abp || {}; abp.appPath = '@ApplicationPath';
+    </script>
+</head>
+<body style="background: #83c710">
+    <div class="loginW">
+        <div class="left">
+            <header><h1>***S</h1></header>
+        </div>
+        <div class="right">
+            <div class="loginBox">
+                <h3>用户登录</h3>
+
+                @*<div class="alert alert-danger display-hide">
+                    <button class="close" data-close="alert"></button>
+                    <span>
+                        <i class="fa fa-warning"></i> @L("PleaseEnterLoginInformation")
+                    </span>
+                </div>*@
+                @if (!Model.SuccessMessage.IsNullOrEmpty())
+                {
+                    <div class="alert alert-success">
+                        <button class="close" data-close="alert"></button>
+                        <span>
+                            @Model.SuccessMessage
+                        </span>
+                    </div>
+                }
+                <form class="login-form" action="@Url.Action("Login")?returnUrl=@ViewBag.ReturnUrl" method="post">
+                    <input type="hidden" name="returnUrlHash" />
+                    @if (ViewBag.IsMultiTenancyEnabled)
+                    {
+                        if (Model.TenancyName.IsNullOrEmpty())
+                        {
+                            <div class="form-group">
+                                <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+                                <label class="control-label visible-ie8 visible-ie9">@L("TenancyName")</label>
+                                <input class="form-control form-control-solid placeholder-no-fix input-ltr" type="text" placeholder="@L("TenancyName")" name="tenancyName" maxlength="@Tenant.MaxTenancyNameLength" />
+                            </div>
+                        }
+                        else
+                        {
+                            <input type="hidden" name="tenancyName" value="@Model.TenancyName" />
+                        }
+                    }
+                    <label class="mt50"><i class="icons icon-user"></i>
+                        <input type="text" autocomplete="off" placeholder="帐号" class="inpGreen w100" name="usernameOrEmailAddress" value="@(Model.UserNameOrEmailAddress ?? "")" required  />                        
+                    </label>
+                    <label class="mt20"><i class="icons icon-pw"></i>
+                        <input type="password" autocomplete="off" placeholder="密码" class="inpGreen w100" name="password" required />
+                    </label>
+                    @*<label class="f14 mt10"><input type="checkbox" /><span class="ml10">记住密码</span></label>*@
+                    <p class="mt50 tlc">
+                        <button type="submit" class="btn btn-green-B f18">@L("LogIn")</button>      
+                    </p>
+                </form>
+</div>
+        </div>
+        <div class="center"></div>
+
+        @{
+            var loginProviders = Context.GetOwinContext().Authentication.GetExternalAuthenticationTypes().ToList();
+            Func<string, string> getSocialIconClass = (provider) =>
+            {
+                provider = provider.ToLower(CultureInfo.InvariantCulture);
+
+                if (provider == "google")
+                {
+                    return "googleplus";
+                }
+
+                return provider;
+            };
+        }
+
+        @if (loginProviders.Count > 0)
+        {
+            <div class="login-options">
+                <h4>@L("LoginWith")</h4>
+                <ul class="social-icons">
+                    @using (Html.BeginForm("ExternalLogin", "Account", method: FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <input type="hidden" name="returnUrl" value="@ViewBag.ReturnUrl" />
+                        <input type="hidden" name="provider" value="" />
+
+                        foreach (AuthenticationDescription p in loginProviders)
+                        {
+                            <li>
+                                <a class="social-login-icon social-icon-color @getSocialIconClass(p.AuthenticationType)"
+                                   title="@p.AuthenticationType"
+                                   data-provider="@p.AuthenticationType"
+                                   href="javascript:;"></a>
+                            </li>
+                        }
+                    }
+                </ul>
+            </div>
+        }
+    </div>
+
+    @Html.IncludeScript(ScriptPaths.Json2)
+    @Html.IncludeScript(ScriptPaths.JQuery)
+    @Html.IncludeScript(ScriptPaths.JQuery_Migrate)
+    @Html.IncludeScript(ScriptPaths.Bootstrap)
+    @Html.IncludeScript(ScriptPaths.JQuery_BlockUi)
+    @Html.IncludeScript(ScriptPaths.JQuery_Uniform)
+    @Html.IncludeScript(ScriptPaths.JQuery_Cookie)
+    @Html.IncludeScript(ScriptPaths.Toastr)
+    @Html.IncludeScript(ScriptPaths.SpinJs)
+    @Html.IncludeScript(ScriptPaths.SpinJs_JQuery)
+    @Html.IncludeScript(ScriptPaths.SweetAlert)
+    @Html.IncludeScript(ScriptPaths.Abp)
+    @Html.IncludeScript(ScriptPaths.Abp_JQuery)
+    @Html.IncludeScript(ScriptPaths.Abp_BlockUi)
+    @Html.IncludeScript(ScriptPaths.Abp_SpinJs)
+    @Html.IncludeScript(ScriptPaths.Abp_Toastr)
+    @Html.IncludeScript(ScriptPaths.Abp_SweetAlert)
+
+    <script type="text/javascript">
+            abp.localization.defaultSourceName = '@LocalizationSourceName';
+    </script>
+
+    <!-- Dynamic scripts of ABP system (They are created on runtime and can not be bundled) -->
+    <script src="~/AbpScripts/GetScripts?v=@(Clock.Now.Ticks)" type="text/javascript"></script>
+
+    @Html.IncludeScript(ScriptPaths.JQuery_Validation)
+    @Html.IncludeScript(ScriptPaths.JQuery_Validation_Localization)
+
+    @Html.IncludeScript("~/metronic/assets/global/scripts/app.js")
+    <script type="text/javascript">
+            App.setAssetsPath(abp.appPath + 'metronic/assets/');
+    </script>
+
+    @Scripts.Render("~/Bundles/Common/js")
+
+    @Html.IncludeScript("~/metronic/assets/admin/layout/scripts/layout.js")
+
+    <script>
+        jQuery(document).ready(function () {
+            if (CurrentPage) {
+                CurrentPage.init();
+            }
+        });
+    </script>
+</body>
+</html>
+
+

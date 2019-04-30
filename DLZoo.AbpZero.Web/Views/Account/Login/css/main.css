@@ -1,0 +1,49 @@
+﻿@charset "utf-8";
+body,div,ul,ol,li,dl,dt,dd,h1,h2,h3,h4,input,article,p,input,input[type=checkbox], input[type=radio] {margin: 0px;padding: 0px;border:0;}
+h1,h2,h3,h4{ font-weight:normal;}
+img{border:0;}
+b{ font-weight:normal;}
+.hide{display:none;}
+li,dl{list-style:none;}
+i,em{font-style:normal;}
+input,select{vertical-align:middle;}
+label{ font-weight:normal;}
+
+body{text-align:center; background:#fff}
+div,li,p,h1,td,h2,h3,select,dt,dd,.btn{font-size:12px;line-height: 150%;text-align:left;color:#666; font-family: "Microsoft YaHei ","微软雅黑";}
+.clear{height:0px;line-height:0px;font-size:0px;overflow:hidden;clear:both;}
+a{text-decoration:none; cursor:pointer; }
+a:link{color:#646464;}
+a:visited{color:#646464;}
+a:hover{ color:#fe6052; text-decoration:none;}
+.wrap{ width:1320px; margin-left:auto;margin-right:auto; overflow:hidden;}
+.inpGreen{background: #fff;border:solid 1px #007405;height: 30px; line-height: 30px; text-indent: 2em;}
+.mt50{margin-top: 50px;}
+.mt20{margin-top: 20px;}
+.mt10{margin-top: 10px;}
+.mr10{margin-right:10px}
+.ml10{margin-left:10px}
+.w100{width:100%;}
+.f14{font-size: 14px;}
+.f18{font-size: 18px}
+.tlc{text-align: center}
+.btn,a.btn{display: inline-block;}
+.btn-green,.btn-green-B,a.btn-green,a.btn-green-B{background:#007507;color:#fff;}
+.btn-green-B{width:90%; text-align: center;padding: 8px 0;}
+
+.icons{display: inline-block;background: url("../images/icons.png") no-repeat;}
+.icon-user{background-position: 0 0;width:11px;height: 14px;}
+.icon-pw{background-position: 0 -20px;width:12px;height: 13px;}
+
+.loginW{width:100%;min-width:1360px;background:#fff url("../images/loginBG.gif") repeat-x bottom;}
+.loginW .left {float: left;width: 794px;height: 768px; background: url("../images/loginL.gif") no-repeat bottom;}
+.loginW .right {float: right;width: 562px;height: 768px;background: url("../images/loginR.png") no-repeat right bottom;position: relative;}
+.center {margin: 0 562px 0 794px;height: 768px;}
+.loginW h1{text-indent: -9999px; background: url("../images/logo.png");width:254px;height: 48px;margin:36px 0 0 30px;}
+.loginBox{background: #e6fdbe;border: solid 1px #87c23c;position: absolute;top:200px;left: 50px;padding:30px 40px;width:340px;}
+.loginBox h3{font-size: 22px; text-align: center;color:#007405;margin-top: 30px;}
+.loginBox label{display: block;position:relative;}
+.loginBox label i{position:absolute;top:9px;left:8px;z-index: 5;}
+.loginBox input[type=text],.loginBox input[type=password]{font-size: 14px;display: block}
+.loginBox input::-webkit-input-placeholder{color:#007507;}
+.loginBox input::-moz-placeholder{color:#007507;}
