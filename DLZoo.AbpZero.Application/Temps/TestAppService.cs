@@ -23,6 +23,9 @@ namespace MyTempProject.Temps
         private readonly IRepository<Entities.CWmtRiver, int> _wmtRiverRepository;
         private readonly IRepository<Entities.CWmtRsvr, int> _wmtRsvrRepository;
         private readonly IRepository<Entities.CWmtSoilMoisture, int> _wmtSoilMoistureRepository;
+        private readonly IRepository<Entities.CCustomer, int> _wmtCustomerRepository;
+        private readonly IRepository<Entities.CIp, int> _wmtIpRepository;
+        private readonly IRepository<Entities.CVisitRecord, int> _wmtVisitRecordRepository;
         public TestAppService(ISqlExecuter sqlExecuter, 
             IRepository<Entities.Temp.CTableClass, long> tableRepository,
             IRepository<Entities.CStnInfoB, int> stnInfoBRepository,
@@ -30,7 +33,10 @@ namespace MyTempProject.Temps
             IRepository<Entities.CWmtRain, int> wmtRainRepository,
             IRepository<Entities.CWmtRiver, int> wmtRiverRepository,
             IRepository<Entities.CWmtRsvr, int> wmtRsvrRepository,
-            IRepository<Entities.CWmtSoilMoisture, int> wmtSoilMoistureRepository
+            IRepository<Entities.CWmtSoilMoisture, int> wmtSoilMoistureRepository,
+            IRepository<Entities.CCustomer, int> wmtCustomerRepository,
+            IRepository<Entities.CIp, int> wmtIpRepository,
+            IRepository<Entities.CVisitRecord, int> wmtVisitRecordRepository
             ) {
             this._sqlExecuter = sqlExecuter;
             this._tableRepository = tableRepository;
@@ -40,6 +46,9 @@ namespace MyTempProject.Temps
             this._wmtRiverRepository = wmtRiverRepository;
             this._wmtRsvrRepository = wmtRsvrRepository;
             this._wmtSoilMoistureRepository = wmtSoilMoistureRepository;
+            this._wmtCustomerRepository = wmtCustomerRepository;
+            this._wmtIpRepository = wmtIpRepository;
+            this._wmtVisitRecordRepository = wmtVisitRecordRepository;
         }
         public List<CTableListDto> FindColumnAFromTable()
         {
@@ -60,6 +69,9 @@ namespace MyTempProject.Temps
             //return results.MapTo<List<CTableListDto>>();
 
             var results = this._stnParaRRepository.GetAll().ToList();
+            var results1 = this._wmtCustomerRepository.GetAll().ToList();
+            var results2 = this._wmtIpRepository.GetAll().ToList();
+            var results3 = this._wmtVisitRecordRepository.GetAll().ToList();
             return new List<CTableListDto>();
         }
     }
