@@ -4495,3 +4495,437 @@ DEBUG 2019-04-29 17:25:23,387 [1    ] Abp.AutoMapper.AbpAutoMapperModule       -
 DEBUG 2019-04-29 17:25:23,849 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'MyTempProject.Temps.ITestAppService' with service name 'app/test'.
 DEBUG 2019-04-29 17:25:23,852 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'MyTempProject.Configuration.Host.IHostSettingsAppService' with service name 'app/hostSettings'.
 DEBUG 2019-04-29 17:25:23,855 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'MyTempProject.Common.ICommonLookupAppService' with service name 'app/commonLookup'.
+DEBUG 2019-04-30 09:56:16,833 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2019-04-30 09:56:22,342 [1    ] Abp.Modules.AbpModuleManager             - Found 18 ABP modules in total.
+DEBUG 2019-04-30 09:56:22,351 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 09:56:22,355 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 09:56:22,356 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 09:56:22,356 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Hangfire.AbpHangfireModule, Abp.HangFire, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 09:56:22,356 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Owin.AbpOwinModule, Abp.Owin, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 09:56:22,356 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 09:56:22,357 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.OData.AbpWebApiODataModule, Abp.Web.Api.OData, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 09:56:22,357 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 09:56:22,357 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 09:56:22,357 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.SignalR.AbpWebSignalRModule, Abp.Web.SignalR, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 09:56:22,357 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.Zero, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 09:56:22,358 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFramework.AbpZeroEntityFrameworkModule, Abp.Zero.EntityFramework, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 09:56:22,358 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.Ldap.AbpZeroLdapModule, Abp.Zero.Ldap, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 09:56:22,358 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyTempProject.AbpZeroTemplateApplicationModule, MyTempProject.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 09:56:22,359 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyTempProject.AbpZeroTemplateCoreModule, MyTempProject.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 09:56:22,359 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyTempProject.AbpZeroTemplateDataModule, MyTempProject.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 09:56:22,359 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyTempProject.Web.AbpZeroTemplateWebModule, MyTempProject.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 09:56:22,359 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyTempProject.WebApi.AbpZeroTemplateWebApiModule, MyTempProject.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 09:56:22,374 [1    ] Abp.Modules.AbpModuleManager             - 18 modules loaded.
+DEBUG 2019-04-30 09:56:25,087 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2019-04-30 09:56:25,176 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2019-04-30 09:56:25,178 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2019-04-30 09:56:25,208 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2019-04-30 09:56:25,227 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZeroTemplate
+DEBUG 2019-04-30 09:56:27,405 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 1 classes defines auto mapping attributes
+DEBUG 2019-04-30 09:56:27,405 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyTempProject.Temps.Dto.CTableListDto
+DEBUG 2019-04-30 09:56:28,176 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'MyTempProject.Temps.ITestAppService' with service name 'app/test'.
+DEBUG 2019-04-30 09:56:28,179 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'MyTempProject.Configuration.Host.IHostSettingsAppService' with service name 'app/hostSettings'.
+DEBUG 2019-04-30 09:56:28,181 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'MyTempProject.Common.ICommonLookupAppService' with service name 'app/commonLookup'.
+DEBUG 2019-04-30 09:59:45,026 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2019-04-30 09:59:48,492 [1    ] Abp.Modules.AbpModuleManager             - Found 18 ABP modules in total.
+DEBUG 2019-04-30 09:59:48,502 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 09:59:48,507 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 09:59:48,508 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 09:59:48,508 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Hangfire.AbpHangfireModule, Abp.HangFire, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 09:59:48,508 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Owin.AbpOwinModule, Abp.Owin, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 09:59:48,508 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 09:59:48,508 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.OData.AbpWebApiODataModule, Abp.Web.Api.OData, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 09:59:48,509 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 09:59:48,509 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 09:59:48,509 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.SignalR.AbpWebSignalRModule, Abp.Web.SignalR, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 09:59:48,509 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.Zero, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 09:59:48,509 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFramework.AbpZeroEntityFrameworkModule, Abp.Zero.EntityFramework, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 09:59:48,510 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.Ldap.AbpZeroLdapModule, Abp.Zero.Ldap, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 09:59:48,510 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyTempProject.AbpZeroTemplateApplicationModule, MyTempProject.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 09:59:48,510 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyTempProject.AbpZeroTemplateCoreModule, MyTempProject.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 09:59:48,511 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyTempProject.AbpZeroTemplateDataModule, MyTempProject.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 09:59:48,511 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyTempProject.Web.AbpZeroTemplateWebModule, MyTempProject.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 09:59:48,512 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyTempProject.WebApi.AbpZeroTemplateWebApiModule, MyTempProject.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 09:59:48,530 [1    ] Abp.Modules.AbpModuleManager             - 18 modules loaded.
+DEBUG 2019-04-30 09:59:52,080 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2019-04-30 09:59:52,093 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2019-04-30 09:59:52,095 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2019-04-30 09:59:52,125 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2019-04-30 09:59:52,140 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZeroTemplate
+DEBUG 2019-04-30 09:59:54,650 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 1 classes defines auto mapping attributes
+DEBUG 2019-04-30 09:59:54,650 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyTempProject.Temps.Dto.CTableListDto
+DEBUG 2019-04-30 09:59:55,640 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'MyTempProject.Temps.ITestAppService' with service name 'app/test'.
+DEBUG 2019-04-30 09:59:55,643 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'MyTempProject.Configuration.Host.IHostSettingsAppService' with service name 'app/hostSettings'.
+DEBUG 2019-04-30 09:59:55,647 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'MyTempProject.Common.ICommonLookupAppService' with service name 'app/commonLookup'.
+DEBUG 2019-04-30 10:02:29,688 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2019-04-30 10:02:33,263 [1    ] Abp.Modules.AbpModuleManager             - Found 18 ABP modules in total.
+DEBUG 2019-04-30 10:02:33,274 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:02:33,281 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:02:33,281 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:02:33,281 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Hangfire.AbpHangfireModule, Abp.HangFire, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:02:33,282 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Owin.AbpOwinModule, Abp.Owin, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:02:33,282 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:02:33,282 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.OData.AbpWebApiODataModule, Abp.Web.Api.OData, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:02:33,283 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:02:33,283 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:02:33,283 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.SignalR.AbpWebSignalRModule, Abp.Web.SignalR, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:02:33,284 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.Zero, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:02:33,284 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFramework.AbpZeroEntityFrameworkModule, Abp.Zero.EntityFramework, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:02:33,284 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.Ldap.AbpZeroLdapModule, Abp.Zero.Ldap, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:02:33,285 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyTempProject.AbpZeroTemplateApplicationModule, MyTempProject.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:02:33,286 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyTempProject.AbpZeroTemplateCoreModule, MyTempProject.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:02:33,286 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyTempProject.AbpZeroTemplateDataModule, MyTempProject.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:02:33,286 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyTempProject.Web.AbpZeroTemplateWebModule, MyTempProject.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:02:33,287 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyTempProject.WebApi.AbpZeroTemplateWebApiModule, MyTempProject.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:02:33,307 [1    ] Abp.Modules.AbpModuleManager             - 18 modules loaded.
+DEBUG 2019-04-30 10:02:35,327 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2019-04-30 10:02:35,339 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2019-04-30 10:02:35,340 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2019-04-30 10:02:35,367 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2019-04-30 10:02:35,383 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZeroTemplate
+DEBUG 2019-04-30 10:02:37,194 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 1 classes defines auto mapping attributes
+DEBUG 2019-04-30 10:02:37,194 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyTempProject.Temps.Dto.CTableListDto
+DEBUG 2019-04-30 10:02:37,891 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'MyTempProject.Temps.ITestAppService' with service name 'app/test'.
+DEBUG 2019-04-30 10:02:37,893 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'MyTempProject.Configuration.Host.IHostSettingsAppService' with service name 'app/hostSettings'.
+DEBUG 2019-04-30 10:02:37,896 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'MyTempProject.Common.ICommonLookupAppService' with service name 'app/commonLookup'.
+DEBUG 2019-04-30 10:07:23,742 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2019-04-30 10:07:28,247 [1    ] Abp.Modules.AbpModuleManager             - Found 18 ABP modules in total.
+DEBUG 2019-04-30 10:07:28,258 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:07:28,263 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:07:28,264 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:07:28,264 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Hangfire.AbpHangfireModule, Abp.HangFire, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:07:28,264 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Owin.AbpOwinModule, Abp.Owin, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:07:28,264 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:07:28,265 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.OData.AbpWebApiODataModule, Abp.Web.Api.OData, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:07:28,265 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:07:28,265 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:07:28,265 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.SignalR.AbpWebSignalRModule, Abp.Web.SignalR, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:07:28,265 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.Zero, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:07:28,266 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFramework.AbpZeroEntityFrameworkModule, Abp.Zero.EntityFramework, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:07:28,266 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.Ldap.AbpZeroLdapModule, Abp.Zero.Ldap, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:07:28,266 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyTempProject.AbpZeroTemplateApplicationModule, MyTempProject.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:07:28,267 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyTempProject.AbpZeroTemplateCoreModule, MyTempProject.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:07:28,267 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyTempProject.AbpZeroTemplateDataModule, MyTempProject.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:07:28,267 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyTempProject.Web.AbpZeroTemplateWebModule, MyTempProject.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:07:28,267 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyTempProject.WebApi.AbpZeroTemplateWebApiModule, MyTempProject.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:07:28,283 [1    ] Abp.Modules.AbpModuleManager             - 18 modules loaded.
+DEBUG 2019-04-30 10:07:30,362 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2019-04-30 10:07:30,377 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2019-04-30 10:07:30,380 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2019-04-30 10:07:30,412 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2019-04-30 10:07:30,439 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZeroTemplate
+DEBUG 2019-04-30 10:07:32,268 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 1 classes defines auto mapping attributes
+DEBUG 2019-04-30 10:07:32,269 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyTempProject.Temps.Dto.CTableListDto
+DEBUG 2019-04-30 10:07:32,942 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'MyTempProject.Temps.ITestAppService' with service name 'app/test'.
+DEBUG 2019-04-30 10:07:32,945 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'MyTempProject.Configuration.Host.IHostSettingsAppService' with service name 'app/hostSettings'.
+DEBUG 2019-04-30 10:07:32,948 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'MyTempProject.Common.ICommonLookupAppService' with service name 'app/commonLookup'.
+DEBUG 2019-04-30 10:12:35,690 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2019-04-30 10:12:40,319 [1    ] Abp.Modules.AbpModuleManager             - Found 18 ABP modules in total.
+DEBUG 2019-04-30 10:12:40,328 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:12:40,333 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:12:40,333 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:12:40,334 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Hangfire.AbpHangfireModule, Abp.HangFire, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:12:40,334 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Owin.AbpOwinModule, Abp.Owin, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:12:40,334 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:12:40,334 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.OData.AbpWebApiODataModule, Abp.Web.Api.OData, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:12:40,334 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:12:40,335 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:12:40,335 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.SignalR.AbpWebSignalRModule, Abp.Web.SignalR, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:12:40,335 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.Zero, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:12:40,335 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFramework.AbpZeroEntityFrameworkModule, Abp.Zero.EntityFramework, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:12:40,335 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.Ldap.AbpZeroLdapModule, Abp.Zero.Ldap, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:12:40,336 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyTempProject.AbpZeroTemplateApplicationModule, MyTempProject.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:12:40,336 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyTempProject.AbpZeroTemplateCoreModule, MyTempProject.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:12:40,336 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyTempProject.AbpZeroTemplateDataModule, MyTempProject.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:12:40,337 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyTempProject.Web.AbpZeroTemplateWebModule, MyTempProject.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:12:40,337 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyTempProject.WebApi.AbpZeroTemplateWebApiModule, MyTempProject.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:12:40,350 [1    ] Abp.Modules.AbpModuleManager             - 18 modules loaded.
+DEBUG 2019-04-30 10:12:42,319 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2019-04-30 10:12:42,331 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2019-04-30 10:12:42,333 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2019-04-30 10:12:42,361 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2019-04-30 10:12:42,384 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZeroTemplate
+DEBUG 2019-04-30 10:12:44,233 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 1 classes defines auto mapping attributes
+DEBUG 2019-04-30 10:12:44,234 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyTempProject.Temps.Dto.CTableListDto
+DEBUG 2019-04-30 10:12:44,913 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'MyTempProject.Temps.ITestAppService' with service name 'app/test'.
+DEBUG 2019-04-30 10:12:44,916 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'MyTempProject.Configuration.Host.IHostSettingsAppService' with service name 'app/hostSettings'.
+DEBUG 2019-04-30 10:12:44,918 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'MyTempProject.Common.ICommonLookupAppService' with service name 'app/commonLookup'.
+DEBUG 2019-04-30 10:15:20,774 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2019-04-30 10:15:24,179 [1    ] Abp.Modules.AbpModuleManager             - Found 18 ABP modules in total.
+DEBUG 2019-04-30 10:15:24,188 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:15:24,194 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:15:24,194 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:15:24,194 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Hangfire.AbpHangfireModule, Abp.HangFire, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:15:24,195 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Owin.AbpOwinModule, Abp.Owin, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:15:24,195 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:15:24,195 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.OData.AbpWebApiODataModule, Abp.Web.Api.OData, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:15:24,195 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:15:24,195 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:15:24,196 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.SignalR.AbpWebSignalRModule, Abp.Web.SignalR, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:15:24,196 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.Zero, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:15:24,196 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFramework.AbpZeroEntityFrameworkModule, Abp.Zero.EntityFramework, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:15:24,196 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.Ldap.AbpZeroLdapModule, Abp.Zero.Ldap, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:15:24,197 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyTempProject.AbpZeroTemplateApplicationModule, MyTempProject.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:15:24,197 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyTempProject.AbpZeroTemplateCoreModule, MyTempProject.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:15:24,197 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyTempProject.AbpZeroTemplateDataModule, MyTempProject.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:15:24,198 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyTempProject.Web.AbpZeroTemplateWebModule, MyTempProject.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:15:24,198 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyTempProject.WebApi.AbpZeroTemplateWebApiModule, MyTempProject.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:15:24,226 [1    ] Abp.Modules.AbpModuleManager             - 18 modules loaded.
+DEBUG 2019-04-30 10:15:26,181 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2019-04-30 10:15:26,198 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2019-04-30 10:15:26,201 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2019-04-30 10:15:26,230 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2019-04-30 10:15:26,248 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZeroTemplate
+DEBUG 2019-04-30 10:15:28,097 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 1 classes defines auto mapping attributes
+DEBUG 2019-04-30 10:15:28,097 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyTempProject.Temps.Dto.CTableListDto
+DEBUG 2019-04-30 10:15:28,752 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'MyTempProject.Temps.ITestAppService' with service name 'app/test'.
+DEBUG 2019-04-30 10:15:28,754 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'MyTempProject.Configuration.Host.IHostSettingsAppService' with service name 'app/hostSettings'.
+DEBUG 2019-04-30 10:15:28,756 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'MyTempProject.Common.ICommonLookupAppService' with service name 'app/commonLookup'.
+DEBUG 2019-04-30 10:40:31,169 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2019-04-30 10:40:34,677 [1    ] Abp.Modules.AbpModuleManager             - Found 18 ABP modules in total.
+DEBUG 2019-04-30 10:40:34,689 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:40:34,695 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:40:34,695 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:40:34,696 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Hangfire.AbpHangfireModule, Abp.HangFire, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:40:34,696 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Owin.AbpOwinModule, Abp.Owin, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:40:34,696 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:40:34,697 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.OData.AbpWebApiODataModule, Abp.Web.Api.OData, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:40:34,697 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:40:34,697 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:40:34,698 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.SignalR.AbpWebSignalRModule, Abp.Web.SignalR, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:40:34,698 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.Zero, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:40:34,698 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFramework.AbpZeroEntityFrameworkModule, Abp.Zero.EntityFramework, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:40:34,698 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.Ldap.AbpZeroLdapModule, Abp.Zero.Ldap, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:40:34,699 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyTempProject.AbpZeroTemplateApplicationModule, MyTempProject.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:40:34,699 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyTempProject.AbpZeroTemplateCoreModule, MyTempProject.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:40:34,699 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyTempProject.AbpZeroTemplateDataModule, MyTempProject.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:40:34,700 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyTempProject.Web.AbpZeroTemplateWebModule, MyTempProject.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:40:34,700 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyTempProject.WebApi.AbpZeroTemplateWebApiModule, MyTempProject.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:40:34,719 [1    ] Abp.Modules.AbpModuleManager             - 18 modules loaded.
+DEBUG 2019-04-30 10:40:36,673 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2019-04-30 10:40:36,689 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2019-04-30 10:40:36,691 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2019-04-30 10:40:36,729 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2019-04-30 10:40:36,746 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZeroTemplate
+DEBUG 2019-04-30 10:40:38,589 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 1 classes defines auto mapping attributes
+DEBUG 2019-04-30 10:40:38,589 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyTempProject.Temps.Dto.CTableListDto
+DEBUG 2019-04-30 10:40:39,308 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'MyTempProject.Temps.ITestAppService' with service name 'app/test'.
+DEBUG 2019-04-30 10:40:39,311 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'MyTempProject.Configuration.Host.IHostSettingsAppService' with service name 'app/hostSettings'.
+DEBUG 2019-04-30 10:40:39,314 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'MyTempProject.Common.ICommonLookupAppService' with service name 'app/commonLookup'.
+DEBUG 2019-04-30 10:46:31,955 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2019-04-30 10:46:35,390 [1    ] Abp.Modules.AbpModuleManager             - Found 18 ABP modules in total.
+DEBUG 2019-04-30 10:46:35,399 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:46:35,403 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:46:35,404 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:46:35,404 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Hangfire.AbpHangfireModule, Abp.HangFire, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:46:35,404 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Owin.AbpOwinModule, Abp.Owin, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:46:35,405 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:46:35,405 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.OData.AbpWebApiODataModule, Abp.Web.Api.OData, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:46:35,405 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:46:35,405 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:46:35,405 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.SignalR.AbpWebSignalRModule, Abp.Web.SignalR, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:46:35,406 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.Zero, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:46:35,406 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFramework.AbpZeroEntityFrameworkModule, Abp.Zero.EntityFramework, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:46:35,406 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.Ldap.AbpZeroLdapModule, Abp.Zero.Ldap, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:46:35,406 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyTempProject.AbpZeroTemplateApplicationModule, MyTempProject.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:46:35,407 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyTempProject.AbpZeroTemplateCoreModule, MyTempProject.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:46:35,407 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyTempProject.AbpZeroTemplateDataModule, MyTempProject.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:46:35,407 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyTempProject.Web.AbpZeroTemplateWebModule, MyTempProject.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:46:35,407 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyTempProject.WebApi.AbpZeroTemplateWebApiModule, MyTempProject.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:46:35,448 [1    ] Abp.Modules.AbpModuleManager             - 18 modules loaded.
+DEBUG 2019-04-30 10:46:37,462 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2019-04-30 10:46:37,475 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2019-04-30 10:46:37,477 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2019-04-30 10:46:37,508 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2019-04-30 10:46:37,526 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZeroTemplate
+DEBUG 2019-04-30 10:46:39,425 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 1 classes defines auto mapping attributes
+DEBUG 2019-04-30 10:46:39,426 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyTempProject.Temps.Dto.CTableListDto
+DEBUG 2019-04-30 10:46:40,146 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'MyTempProject.Temps.ITestAppService' with service name 'app/test'.
+DEBUG 2019-04-30 10:46:40,149 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'MyTempProject.Configuration.Host.IHostSettingsAppService' with service name 'app/hostSettings'.
+DEBUG 2019-04-30 10:46:40,151 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'MyTempProject.Common.ICommonLookupAppService' with service name 'app/commonLookup'.
+DEBUG 2019-04-30 10:50:19,121 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2019-04-30 10:50:23,147 [1    ] Abp.Modules.AbpModuleManager             - Found 18 ABP modules in total.
+DEBUG 2019-04-30 10:50:23,187 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:50:23,192 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:50:23,193 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:50:23,194 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Hangfire.AbpHangfireModule, Abp.HangFire, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:50:23,194 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Owin.AbpOwinModule, Abp.Owin, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:50:23,194 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:50:23,195 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.OData.AbpWebApiODataModule, Abp.Web.Api.OData, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:50:23,195 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:50:23,195 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:50:23,196 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.SignalR.AbpWebSignalRModule, Abp.Web.SignalR, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:50:23,196 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.Zero, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:50:23,196 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFramework.AbpZeroEntityFrameworkModule, Abp.Zero.EntityFramework, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:50:23,197 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.Ldap.AbpZeroLdapModule, Abp.Zero.Ldap, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:50:23,197 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyTempProject.AbpZeroTemplateApplicationModule, MyTempProject.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:50:23,198 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyTempProject.AbpZeroTemplateCoreModule, MyTempProject.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:50:23,198 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyTempProject.AbpZeroTemplateDataModule, MyTempProject.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:50:23,198 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyTempProject.Web.AbpZeroTemplateWebModule, MyTempProject.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:50:23,199 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyTempProject.WebApi.AbpZeroTemplateWebApiModule, MyTempProject.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:50:23,217 [1    ] Abp.Modules.AbpModuleManager             - 18 modules loaded.
+DEBUG 2019-04-30 10:50:25,257 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2019-04-30 10:50:25,282 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2019-04-30 10:50:25,284 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2019-04-30 10:50:25,315 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2019-04-30 10:50:25,334 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZeroTemplate
+DEBUG 2019-04-30 10:50:27,228 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 1 classes defines auto mapping attributes
+DEBUG 2019-04-30 10:50:27,228 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyTempProject.Temps.Dto.CTableListDto
+DEBUG 2019-04-30 10:50:27,930 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'MyTempProject.Temps.ITestAppService' with service name 'app/test'.
+DEBUG 2019-04-30 10:50:27,932 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'MyTempProject.Configuration.Host.IHostSettingsAppService' with service name 'app/hostSettings'.
+DEBUG 2019-04-30 10:50:27,934 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'MyTempProject.Common.ICommonLookupAppService' with service name 'app/commonLookup'.
+DEBUG 2019-04-30 10:57:44,903 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2019-04-30 10:57:48,444 [1    ] Abp.Modules.AbpModuleManager             - Found 18 ABP modules in total.
+DEBUG 2019-04-30 10:57:48,453 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:57:48,459 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:57:48,460 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:57:48,460 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Hangfire.AbpHangfireModule, Abp.HangFire, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:57:48,461 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Owin.AbpOwinModule, Abp.Owin, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:57:48,461 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:57:48,461 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.OData.AbpWebApiODataModule, Abp.Web.Api.OData, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:57:48,461 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:57:48,462 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:57:48,462 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.SignalR.AbpWebSignalRModule, Abp.Web.SignalR, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:57:48,462 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.Zero, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:57:48,462 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFramework.AbpZeroEntityFrameworkModule, Abp.Zero.EntityFramework, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:57:48,463 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.Ldap.AbpZeroLdapModule, Abp.Zero.Ldap, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:57:48,463 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyTempProject.AbpZeroTemplateApplicationModule, MyTempProject.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:57:48,464 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyTempProject.AbpZeroTemplateCoreModule, MyTempProject.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:57:48,464 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyTempProject.AbpZeroTemplateDataModule, MyTempProject.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:57:48,464 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyTempProject.Web.AbpZeroTemplateWebModule, MyTempProject.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:57:48,465 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyTempProject.WebApi.AbpZeroTemplateWebApiModule, MyTempProject.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 10:57:48,483 [1    ] Abp.Modules.AbpModuleManager             - 18 modules loaded.
+DEBUG 2019-04-30 10:57:50,447 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2019-04-30 10:57:50,464 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2019-04-30 10:57:50,466 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2019-04-30 10:57:50,510 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2019-04-30 10:57:50,528 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZeroTemplate
+DEBUG 2019-04-30 10:57:52,405 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 1 classes defines auto mapping attributes
+DEBUG 2019-04-30 10:57:52,405 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyTempProject.Temps.Dto.CTableListDto
+DEBUG 2019-04-30 10:57:53,148 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'MyTempProject.Temps.ITestAppService' with service name 'app/test'.
+DEBUG 2019-04-30 10:57:53,152 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'MyTempProject.Configuration.Host.IHostSettingsAppService' with service name 'app/hostSettings'.
+DEBUG 2019-04-30 10:57:53,157 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'MyTempProject.Common.ICommonLookupAppService' with service name 'app/commonLookup'.
+DEBUG 2019-04-30 11:01:39,995 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2019-04-30 11:01:43,557 [1    ] Abp.Modules.AbpModuleManager             - Found 18 ABP modules in total.
+DEBUG 2019-04-30 11:01:43,566 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 11:01:43,571 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 11:01:43,571 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 11:01:43,572 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Hangfire.AbpHangfireModule, Abp.HangFire, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 11:01:43,572 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Owin.AbpOwinModule, Abp.Owin, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 11:01:43,572 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 11:01:43,572 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.OData.AbpWebApiODataModule, Abp.Web.Api.OData, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 11:01:43,572 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 11:01:43,573 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 11:01:43,573 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.SignalR.AbpWebSignalRModule, Abp.Web.SignalR, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 11:01:43,573 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.Zero, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 11:01:43,574 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFramework.AbpZeroEntityFrameworkModule, Abp.Zero.EntityFramework, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 11:01:43,574 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.Ldap.AbpZeroLdapModule, Abp.Zero.Ldap, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 11:01:43,574 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyTempProject.AbpZeroTemplateApplicationModule, MyTempProject.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 11:01:43,575 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyTempProject.AbpZeroTemplateCoreModule, MyTempProject.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 11:01:43,575 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyTempProject.AbpZeroTemplateDataModule, MyTempProject.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 11:01:43,575 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyTempProject.Web.AbpZeroTemplateWebModule, MyTempProject.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 11:01:43,575 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyTempProject.WebApi.AbpZeroTemplateWebApiModule, MyTempProject.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 11:01:43,590 [1    ] Abp.Modules.AbpModuleManager             - 18 modules loaded.
+DEBUG 2019-04-30 11:01:45,717 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2019-04-30 11:01:45,730 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2019-04-30 11:01:45,732 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2019-04-30 11:01:45,760 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2019-04-30 11:01:45,778 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZeroTemplate
+DEBUG 2019-04-30 11:01:47,735 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 1 classes defines auto mapping attributes
+DEBUG 2019-04-30 11:01:47,735 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyTempProject.Temps.Dto.CTableListDto
+DEBUG 2019-04-30 11:01:48,455 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'MyTempProject.Temps.ITestAppService' with service name 'app/test'.
+DEBUG 2019-04-30 11:01:48,458 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'MyTempProject.Configuration.Host.IHostSettingsAppService' with service name 'app/hostSettings'.
+DEBUG 2019-04-30 11:01:48,462 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'MyTempProject.Common.ICommonLookupAppService' with service name 'app/commonLookup'.
+DEBUG 2019-04-30 11:07:05,571 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2019-04-30 11:07:09,032 [1    ] Abp.Modules.AbpModuleManager             - Found 18 ABP modules in total.
+DEBUG 2019-04-30 11:07:09,041 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 11:07:09,048 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 11:07:09,049 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 11:07:09,049 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Hangfire.AbpHangfireModule, Abp.HangFire, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 11:07:09,050 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Owin.AbpOwinModule, Abp.Owin, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 11:07:09,050 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 11:07:09,051 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.OData.AbpWebApiODataModule, Abp.Web.Api.OData, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 11:07:09,051 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 11:07:09,051 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 11:07:09,052 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.SignalR.AbpWebSignalRModule, Abp.Web.SignalR, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 11:07:09,052 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.Zero, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 11:07:09,052 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFramework.AbpZeroEntityFrameworkModule, Abp.Zero.EntityFramework, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 11:07:09,053 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.Ldap.AbpZeroLdapModule, Abp.Zero.Ldap, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 11:07:09,053 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyTempProject.AbpZeroTemplateApplicationModule, MyTempProject.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 11:07:09,053 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyTempProject.AbpZeroTemplateCoreModule, MyTempProject.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 11:07:09,054 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyTempProject.AbpZeroTemplateDataModule, MyTempProject.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 11:07:09,054 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyTempProject.Web.AbpZeroTemplateWebModule, MyTempProject.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 11:07:09,054 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyTempProject.WebApi.AbpZeroTemplateWebApiModule, MyTempProject.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 11:07:09,075 [1    ] Abp.Modules.AbpModuleManager             - 18 modules loaded.
+DEBUG 2019-04-30 11:07:11,151 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2019-04-30 11:07:11,164 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2019-04-30 11:07:11,165 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2019-04-30 11:07:11,191 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2019-04-30 11:07:11,207 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZeroTemplate
+DEBUG 2019-04-30 11:07:13,158 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 1 classes defines auto mapping attributes
+DEBUG 2019-04-30 11:07:13,159 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyTempProject.Temps.Dto.CTableListDto
+DEBUG 2019-04-30 11:07:13,898 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'MyTempProject.Temps.ITestAppService' with service name 'app/test'.
+DEBUG 2019-04-30 11:07:13,901 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'MyTempProject.Configuration.Host.IHostSettingsAppService' with service name 'app/hostSettings'.
+DEBUG 2019-04-30 11:07:13,903 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'MyTempProject.Common.ICommonLookupAppService' with service name 'app/commonLookup'.
+DEBUG 2019-04-30 11:17:37,695 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2019-04-30 11:17:41,440 [1    ] Abp.Modules.AbpModuleManager             - Found 18 ABP modules in total.
+DEBUG 2019-04-30 11:17:41,483 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 11:17:41,490 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 11:17:41,491 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 11:17:41,491 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Hangfire.AbpHangfireModule, Abp.HangFire, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 11:17:41,492 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Owin.AbpOwinModule, Abp.Owin, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 11:17:41,492 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 11:17:41,492 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.OData.AbpWebApiODataModule, Abp.Web.Api.OData, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 11:17:41,493 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 11:17:41,493 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 11:17:41,493 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.SignalR.AbpWebSignalRModule, Abp.Web.SignalR, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 11:17:41,493 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.Zero, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 11:17:41,494 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFramework.AbpZeroEntityFrameworkModule, Abp.Zero.EntityFramework, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 11:17:41,494 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.Ldap.AbpZeroLdapModule, Abp.Zero.Ldap, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 11:17:41,495 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyTempProject.AbpZeroTemplateApplicationModule, MyTempProject.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 11:17:41,495 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyTempProject.AbpZeroTemplateCoreModule, MyTempProject.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 11:17:41,495 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyTempProject.AbpZeroTemplateDataModule, MyTempProject.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 11:17:41,496 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyTempProject.Web.AbpZeroTemplateWebModule, MyTempProject.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 11:17:41,496 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyTempProject.WebApi.AbpZeroTemplateWebApiModule, MyTempProject.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 11:17:41,510 [1    ] Abp.Modules.AbpModuleManager             - 18 modules loaded.
+DEBUG 2019-04-30 11:17:43,691 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2019-04-30 11:17:43,703 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2019-04-30 11:17:43,705 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2019-04-30 11:17:43,732 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2019-04-30 11:17:43,750 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZeroTemplate
+DEBUG 2019-04-30 11:17:45,740 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 1 classes defines auto mapping attributes
+DEBUG 2019-04-30 11:17:45,740 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyTempProject.Temps.Dto.CTableListDto
+DEBUG 2019-04-30 11:17:46,514 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'MyTempProject.Temps.ITestAppService' with service name 'app/test'.
+DEBUG 2019-04-30 11:17:46,517 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'MyTempProject.Configuration.Host.IHostSettingsAppService' with service name 'app/hostSettings'.
+DEBUG 2019-04-30 11:17:46,520 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'MyTempProject.Common.ICommonLookupAppService' with service name 'app/commonLookup'.
+DEBUG 2019-04-30 11:19:47,142 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2019-04-30 11:19:50,629 [1    ] Abp.Modules.AbpModuleManager             - Found 18 ABP modules in total.
+DEBUG 2019-04-30 11:19:50,638 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 11:19:50,642 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 11:19:50,643 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 11:19:50,643 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Hangfire.AbpHangfireModule, Abp.HangFire, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 11:19:50,643 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Owin.AbpOwinModule, Abp.Owin, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 11:19:50,643 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 11:19:50,644 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.OData.AbpWebApiODataModule, Abp.Web.Api.OData, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 11:19:50,644 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 11:19:50,644 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 11:19:50,644 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.SignalR.AbpWebSignalRModule, Abp.Web.SignalR, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 11:19:50,644 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.Zero, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 11:19:50,645 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFramework.AbpZeroEntityFrameworkModule, Abp.Zero.EntityFramework, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 11:19:50,645 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.Ldap.AbpZeroLdapModule, Abp.Zero.Ldap, Version=0.8.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 11:19:50,645 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyTempProject.AbpZeroTemplateApplicationModule, MyTempProject.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 11:19:50,646 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyTempProject.AbpZeroTemplateCoreModule, MyTempProject.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 11:19:50,646 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyTempProject.AbpZeroTemplateDataModule, MyTempProject.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 11:19:50,646 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyTempProject.Web.AbpZeroTemplateWebModule, MyTempProject.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 11:19:50,646 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyTempProject.WebApi.AbpZeroTemplateWebApiModule, MyTempProject.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-04-30 11:19:50,663 [1    ] Abp.Modules.AbpModuleManager             - 18 modules loaded.
+DEBUG 2019-04-30 11:19:52,807 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2019-04-30 11:19:52,821 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2019-04-30 11:19:52,822 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2019-04-30 11:19:52,851 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2019-04-30 11:19:52,878 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZeroTemplate
+DEBUG 2019-04-30 11:19:54,903 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 1 classes defines auto mapping attributes
+DEBUG 2019-04-30 11:19:54,904 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyTempProject.Temps.Dto.CTableListDto
+DEBUG 2019-04-30 11:19:55,571 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'MyTempProject.Temps.ITestAppService' with service name 'app/test'.
+DEBUG 2019-04-30 11:19:55,574 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'MyTempProject.Configuration.Host.IHostSettingsAppService' with service name 'app/hostSettings'.
+DEBUG 2019-04-30 11:19:55,576 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'MyTempProject.Common.ICommonLookupAppService' with service name 'app/commonLookup'.
