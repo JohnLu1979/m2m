@@ -153,6 +153,10 @@
     <Compile Include="CustomDtoMapper.cs" />
     <Compile Include="Net\MimeTypes\MimeTypeNames.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StnRaraR\Dto\CStnParaRInput.cs" />
+    <Compile Include="StnRaraR\Dto\CStnParaRListDto.cs" />
+    <Compile Include="StnRaraR\IStnParaRAppService.cs" />
+    <Compile Include="StnRaraR\StnInfoBAppService.cs" />
     <Compile Include="StnInfoB\Dto\CStnInfoBInput.cs" />
     <Compile Include="StnInfoB\Dto\CStnInfoBListDto.cs" />
     <Compile Include="StnInfoB\IStnInfoBAppService.cs" />
@@ -161,6 +165,10 @@
     <Compile Include="Temps\Dto\CustomerListDto.cs" />
     <Compile Include="Temps\ITestAppService.cs" />
     <Compile Include="Temps\TestAppService.cs" />
+    <Compile Include="WmtRain\Dto\CWmtRainInput.cs" />
+    <Compile Include="WmtRain\Dto\CWmtRainListDto.cs" />
+    <Compile Include="WmtRain\IWmtRainAppService.cs" />
+    <Compile Include="WmtRain\WmtRainAppService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config">

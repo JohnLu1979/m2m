@@ -1,6 +1,5 @@
 ﻿using Abp.AutoMapper;
 using Abp.Domain.Entities;
-using MyTempProject.
 using Abp.Domain.Entities.Auditing;
 using System;
 using System.Collections.Generic;
@@ -10,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace MyTempProject.Temps.Dto
 {
-    [AutoMapFrom(typeof(Entities.CCustomer)]
+    [AutoMapFrom(typeof(Entities.CCustomer))]
     public class CustomerListDto : Entity<int>
     {
         public virtual string customerName { get; set; }
