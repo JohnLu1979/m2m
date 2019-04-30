@@ -22,4 +22,8 @@ namespace MyTempProject.Entities
         //   [flag]    INT NULL,
         public virtual int? flag { get; set; }
     }
+    public enum VisitRecordFlag {
+        Black = 0,
+        White = 1
+    }
 }
