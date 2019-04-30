@@ -17,9 +17,14 @@ namespace MyTempProject.Temps
     {
         private ISqlExecuter _sqlExecuter;
         private readonly IRepository<Entities.Temp.CTableClass, long> _tableRepository;
-        public TestAppService(ISqlExecuter sqlExecuter, IRepository<Entities.Temp.CTableClass, long> tableRepository) {
+        private readonly IRepository<Entities.CStnInfoB, int> _stnInfoBRepository;
+        public TestAppService(ISqlExecuter sqlExecuter, 
+            IRepository<Entities.Temp.CTableClass, long> tableRepository,
+            IRepository<Entities.CStnInfoB, int> stnInfoBRepository
+            ) {
             this._sqlExecuter = sqlExecuter;
             this._tableRepository = tableRepository;
+            this._stnInfoBRepository = stnInfoBRepository;
         }
         public List<CTableListDto> FindColumnAFromTable()
         {
@@ -34,9 +39,13 @@ namespace MyTempProject.Temps
             //string sql = "select Column_A from dbo.[Table]";
             //var result = _sqlExecuter.SqlQuery<string>(sql).ToList();
             //return result;
-            var results = _tableRepository.GetAll().ToList();
-            return results.MapTo<List<CTableListDto>>();
 
+
+            //var results = _tableRepository.GetAll().ToList();
+            //return results.MapTo<List<CTableListDto>>();
+
+            var results = this._stnInfoBRepository.GetAll().ToList();
+            return new List<CTableListDto>();
         }
     }
 }

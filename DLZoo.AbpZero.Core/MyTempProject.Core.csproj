@@ -105,6 +105,7 @@
     <Compile Include="Configuration\AppSettingProvider.cs" />
     <Compile Include="Configuration\AppSettings.cs" />
     <Compile Include="Debugging\DebugHelper.cs" />
+    <Compile Include="Entities\CStnInfoB.cs" />
     <Compile Include="Entities\Temp\CTableClass.cs" />
     <Compile Include="Features\AppFeatureProvider.cs" />
     <Compile Include="Features\AppFeatures.cs" />
