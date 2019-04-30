@@ -12,5 +12,6 @@ namespace MyTempProject.StnInfoB
     public interface IStnInfoBAppService : IApplicationService
     {
         CDataResults<CStnInfoBListDto> GetStnInfoB(CStnInfoBInput input);
+        CDataResults<string> GetStType(CBaseInput input);
     }
 }

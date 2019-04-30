@@ -55,7 +55,7 @@ namespace MyTempProject.StnInfoB
             }
             if (input.pageNumber.HasValue && input.pageNumber.Value > 0 && input.pageSize.HasValue)
             {
-                query.Take(input.pageSize.Value * input.pageNumber.Value).Skip(input.pageSize.Value * (input.pageNumber.Value - 1));
+                query = query.OrderBy(r => r.Id).Take(input.pageSize.Value * input.pageNumber.Value).Skip(input.pageSize.Value * (input.pageNumber.Value - 1));
             }
 
             var result = query.ToList().MapTo<List<CStnInfoBListDto>>();
@@ -67,6 +67,38 @@ namespace MyTempProject.StnInfoB
                 ErrorMessage = null,
                 Data = result
             }; 
+        }
+
+        public CDataResults<string> GetStType(CBaseInput input)
+        {
+            //Check Ip & customer
+            if (!checkIPandCustomer(input.customerId))
+            {
+                AddVisitRecord(input.customerId, Entities.VisitRecordFlag.Black);
+                return new CDataResults<string>()
+                {
+                    IsSuccess = false,
+                    ErrorMessage = "Validation failed.",
+                    Data = null
+                };
+            }
+
+            //Extract data from DB
+            var query = this._stnInfoBRepository.GetAll().Select(r => r.stType).Distinct();
+            if (input.pageNumber.HasValue && input.pageNumber.Value > 0 && input.pageSize.HasValue)
+            {
+                query = query.OrderBy(r => r).Take(input.pageSize.Value * input.pageNumber.Value).Skip(input.pageSize.Value * (input.pageNumber.Value - 1));
+            }
+
+            var result = query.ToList();
+            //Add visit record
+            AddVisitRecord(input.customerId, Entities.VisitRecordFlag.White);
+            return new CDataResults<string>()
+            {
+                IsSuccess = true,
+                ErrorMessage = null,
+                Data = result
+            };
         }
     }
 }
