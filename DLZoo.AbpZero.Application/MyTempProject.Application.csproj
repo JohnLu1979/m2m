@@ -156,7 +156,7 @@
     <Compile Include="StnRaraR\Dto\CStnParaRInput.cs" />
     <Compile Include="StnRaraR\Dto\CStnParaRListDto.cs" />
     <Compile Include="StnRaraR\IStnParaRAppService.cs" />
-    <Compile Include="StnRaraR\StnInfoBAppService.cs" />
+    <Compile Include="StnRaraR\StnParaRAppService.cs" />
     <Compile Include="StnInfoB\Dto\CStnInfoBInput.cs" />
     <Compile Include="StnInfoB\Dto\CStnInfoBListDto.cs" />
     <Compile Include="StnInfoB\IStnInfoBAppService.cs" />
@@ -165,6 +165,18 @@
     <Compile Include="Temps\Dto\CustomerListDto.cs" />
     <Compile Include="Temps\ITestAppService.cs" />
     <Compile Include="Temps\TestAppService.cs" />
+    <Compile Include="WmtSoilMoisture\Dto\CWmtSoilMoistureInput.cs" />
+    <Compile Include="WmtSoilMoisture\Dto\CWmtSoilMoistureListDto.cs" />
+    <Compile Include="WmtSoilMoisture\IWmtSoilMoistureAppService.cs" />
+    <Compile Include="WmtSoilMoisture\WmtSoilMoistureAppService.cs" />
+    <Compile Include="WmtRsvr\Dto\CWmtRsvrInput.cs" />
+    <Compile Include="WmtRsvr\Dto\CWmtRsvrListDto.cs" />
+    <Compile Include="WmtRsvr\IWmtRsvrAppService.cs" />
+    <Compile Include="WmtRsvr\WmtRsvrAppService.cs" />
+    <Compile Include="WmtRiver\Dto\CWmtRiverInput.cs" />
+    <Compile Include="WmtRiver\Dto\CWmtRiverListDto.cs" />
+    <Compile Include="WmtRiver\IWmtRiverAppService.cs" />
+    <Compile Include="WmtRiver\WmtRiverAppService.cs" />
     <Compile Include="WmtRain\Dto\CWmtRainInput.cs" />
     <Compile Include="WmtRain\Dto\CWmtRainListDto.cs" />
     <Compile Include="WmtRain\IWmtRainAppService.cs" />
