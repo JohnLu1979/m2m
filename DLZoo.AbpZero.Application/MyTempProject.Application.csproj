@@ -158,6 +158,7 @@
     <Compile Include="StnInfoB\IStnInfoBAppService.cs" />
     <Compile Include="StnInfoB\StnInfoBAppService.cs" />
     <Compile Include="Temps\Dto\CTableListDto.cs" />
+    <Compile Include="Temps\Dto\CustomerListDto.cs" />
     <Compile Include="Temps\ITestAppService.cs" />
     <Compile Include="Temps\TestAppService.cs" />
   </ItemGroup>
