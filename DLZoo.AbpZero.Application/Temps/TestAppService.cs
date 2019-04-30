@@ -18,13 +18,28 @@ namespace MyTempProject.Temps
         private ISqlExecuter _sqlExecuter;
         private readonly IRepository<Entities.Temp.CTableClass, long> _tableRepository;
         private readonly IRepository<Entities.CStnInfoB, int> _stnInfoBRepository;
+        private readonly IRepository<Entities.CStnParaR, int> _stnParaRRepository;
+        private readonly IRepository<Entities.CWmtRain, int> _wmtRainRepository;
+        private readonly IRepository<Entities.CWmtRiver, int> _wmtRiverRepository;
+        private readonly IRepository<Entities.CWmtRsvr, int> _wmtRsvrRepository;
+        private readonly IRepository<Entities.CWmtSoilMoisture, int> _wmtSoilMoistureRepository;
         public TestAppService(ISqlExecuter sqlExecuter, 
             IRepository<Entities.Temp.CTableClass, long> tableRepository,
-            IRepository<Entities.CStnInfoB, int> stnInfoBRepository
+            IRepository<Entities.CStnInfoB, int> stnInfoBRepository,
+            IRepository<Entities.CStnParaR, int> stnParaRRepository,
+            IRepository<Entities.CWmtRain, int> wmtRainRepository,
+            IRepository<Entities.CWmtRiver, int> wmtRiverRepository,
+            IRepository<Entities.CWmtRsvr, int> wmtRsvrRepository,
+            IRepository<Entities.CWmtSoilMoisture, int> wmtSoilMoistureRepository
             ) {
             this._sqlExecuter = sqlExecuter;
             this._tableRepository = tableRepository;
             this._stnInfoBRepository = stnInfoBRepository;
+            this._stnParaRRepository = stnParaRRepository;
+            this._wmtRainRepository = wmtRainRepository;
+            this._wmtRiverRepository = wmtRiverRepository;
+            this._wmtRsvrRepository = wmtRsvrRepository;
+            this._wmtSoilMoistureRepository = wmtSoilMoistureRepository;
         }
         public List<CTableListDto> FindColumnAFromTable()
         {
@@ -44,7 +59,7 @@ namespace MyTempProject.Temps
             //var results = _tableRepository.GetAll().ToList();
             //return results.MapTo<List<CTableListDto>>();
 
-            var results = this._stnInfoBRepository.GetAll().ToList();
+            var results = this._stnParaRRepository.GetAll().ToList();
             return new List<CTableListDto>();
         }
     }
