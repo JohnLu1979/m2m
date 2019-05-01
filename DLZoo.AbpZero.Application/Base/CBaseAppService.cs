@@ -12,17 +12,17 @@ namespace MyTempProject.Base
     public class CBaseAppService
     {
 
-        private readonly IRepository<Entities.CCustomer, int> _wmtCustomerRepository;
-        private readonly IRepository<Entities.CIp, int> _wmtIpRepository;
-        private readonly IRepository<Entities.CVisitRecord, int> _wmtVisitRecordRepository;
+        protected readonly IRepository<Entities.CCustomer, int> _customerRepository;
+        protected readonly IRepository<Entities.CIp, int> _ipRepository;
+        protected readonly IRepository<Entities.CVisitRecord, int> _visitRecordRepository;
         public CBaseAppService(
-            IRepository<Entities.CCustomer, int> wmtCustomerRepository,
-            IRepository<Entities.CIp, int> wmtIpRepository,
-            IRepository<Entities.CVisitRecord, int> wmtVisitRecordRepository)
+            IRepository<Entities.CCustomer, int> customerRepository,
+            IRepository<Entities.CIp, int> ipRepository,
+            IRepository<Entities.CVisitRecord, int> visitRecordRepository)
         {
-            this._wmtCustomerRepository = wmtCustomerRepository;
-            this._wmtIpRepository = wmtIpRepository;
-            this._wmtVisitRecordRepository = wmtVisitRecordRepository;
+            this._customerRepository = customerRepository;
+            this._ipRepository = ipRepository;
+            this._visitRecordRepository = visitRecordRepository;
         }
         protected void AddVisitRecord(int customerId, VisitRecordFlag flag) {
             CVisitRecord visitRecord = new CVisitRecord() {
@@ -31,7 +31,7 @@ namespace MyTempProject.Base
                 ip = RequestIP,
                 flag = (int)flag
             };
-            this._wmtVisitRecordRepository.InsertAndGetId(visitRecord);
+            this._visitRecordRepository.InsertAndGetId(visitRecord);
         }
         protected string RequestIP{
             get {
@@ -46,12 +46,12 @@ namespace MyTempProject.Base
         }
 
         protected bool CheckIP() {
-            var ip = this._wmtIpRepository.FirstOrDefault(c => c.IP == RequestIP);
+            var ip = this._ipRepository.FirstOrDefault(c => c.IP == RequestIP);
             return ip != null;
         }
         protected bool CheckCustomer(int customerid)
         {
-            var customer = this._wmtCustomerRepository.FirstOrDefault(c => c.Id == customerid);
+            var customer = this._customerRepository.FirstOrDefault(c => c.Id == customerid);
             return customer != null;
         }
     }

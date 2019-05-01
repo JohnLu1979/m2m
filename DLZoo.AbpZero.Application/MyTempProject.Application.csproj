@@ -138,6 +138,10 @@
     <Compile Include="Common\CommonLookupAppService.cs" />
     <Compile Include="Common\Dto\FindUsersInput.cs" />
     <Compile Include="Common\ICommonLookupAppService.cs" />
+    <Compile Include="VisitRecord\VisitRecordAppService.cs" />
+    <Compile Include="VisitRecord\Dto\CVisitRecordInput.cs" />
+    <Compile Include="VisitRecord\Dto\CVisitRecordListDto.cs" />
+    <Compile Include="VisitRecord\IVisitRecordAppService.cs" />
     <Compile Include="DataExporting\Excel\EpPlus\EpPlusExcelExporterBase.cs" />
     <Compile Include="Dto\PagedAndFilteredInputDto.cs" />
     <Compile Include="Dto\PagedInputDto.cs" />
@@ -165,6 +169,10 @@
     <Compile Include="Temps\Dto\CustomerListDto.cs" />
     <Compile Include="Temps\ITestAppService.cs" />
     <Compile Include="Temps\TestAppService.cs" />
+    <Compile Include="Customer\Dto\CCustomerInput.cs" />
+    <Compile Include="Customer\Dto\CCustomerListDto.cs" />
+    <Compile Include="Customer\ICustomerAppService.cs" />
+    <Compile Include="Customer\CustomerAppService.cs" />
     <Compile Include="WmtSoilMoisture\Dto\CWmtSoilMoistureInput.cs" />
     <Compile Include="WmtSoilMoisture\Dto\CWmtSoilMoistureListDto.cs" />
     <Compile Include="WmtSoilMoisture\IWmtSoilMoistureAppService.cs" />
