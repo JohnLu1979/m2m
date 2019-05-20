@@ -142,6 +142,10 @@
     <Compile Include="Relation\Dto\CRelationListDto.cs" />
     <Compile Include="Relation\IRelationAppService.cs" />
     <Compile Include="Relation\RelationAppService.cs" />
+    <Compile Include="User\Dto\CUserInput.cs" />
+    <Compile Include="User\Dto\CUserOutputDto.cs" />
+    <Compile Include="User\IUserAppService.cs" />
+    <Compile Include="User\UserAppService.cs" />
     <Compile Include="VisitRecord\VisitRecordAppService.cs" />
     <Compile Include="VisitRecord\Dto\CVisitRecordInput.cs" />
     <Compile Include="VisitRecord\Dto\CVisitRecordListDto.cs" />
