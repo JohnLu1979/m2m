@@ -18,21 +18,24 @@ namespace MyTempProject.WmtRiver
 {
     public class WmtRiverAppService : CBaseAppService, IWmtRiverAppService
     {
-        private ISqlExecuter _sqlExecuter;
+         
         private readonly IRepository<Entities.CStnInfoB, int> _stnInfoBRepository;
         private readonly IRepository<Entities.CWmtRiver, int> _wmtRiverRepository;
-        public WmtRiverAppService(ISqlExecuter sqlExecuter,
+        private readonly IRepository<Entities.CRelation, int> _relationReposity;
+        public WmtRiverAppService( 
             IRepository<Entities.CStnInfoB, int> stnInfoBRepository,
             IRepository<Entities.CWmtRiver, int> wmtRiverRepository,
             IRepository<Entities.CCustomer, int> CustomerRepository,
             IRepository<Entities.CIp, int> IpRepository,
-            IRepository<Entities.CVisitRecord, int> VisitRecordRepository
+            IRepository<Entities.CVisitRecord, int> VisitRecordRepository,
+             IRepository<Entities.CRelation, int> relationReposity
             ) :base(CustomerRepository,IpRepository,VisitRecordRepository)
         {
             
-            this._sqlExecuter = sqlExecuter;
+            
             this._stnInfoBRepository = stnInfoBRepository;
             this._wmtRiverRepository = wmtRiverRepository;
+            this._relationReposity = relationReposity;
         }
 
         public CDataResults<CWmtRiverListDto> GetWmtRiver(CWmtRiverInput input)
@@ -82,13 +85,16 @@ namespace MyTempProject.WmtRiver
 
             //Extract data from DB
             var query = from r in _wmtRiverRepository.GetAll()
-                        join s in _stnInfoBRepository.GetAll() on r.stcd equals s.areaCode into rs
-                        from rst in rs.DefaultIfEmpty()
+                        join s in _stnInfoBRepository.GetAll() on r.stcd equals s.areaCode
+                        join res in _relationReposity.GetAll() on s.Id equals res.site_id
+                        where res.customer_id == input.customerId
+                        //into rs
+                        //from rst in rs.DefaultIfEmpty()
                         orderby r.collecttime
                         select new CWmtRiverDetailListDto
                         {
-                            areaCode = rst.areaCode,
-                            areaName = rst.areaName,
+                            areaCode = s.areaCode,
+                            areaName = s.areaName,
                             stcd = r.stcd,
                             paravalue = r.paravalue,
                             collecttime = r.collecttime,
