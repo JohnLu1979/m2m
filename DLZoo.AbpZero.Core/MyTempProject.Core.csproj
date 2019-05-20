@@ -110,6 +110,7 @@
     <Compile Include="Entities\CRelation.cs" />
     <Compile Include="Entities\CStnInfoB.cs" />
     <Compile Include="Entities\CStnParaR.cs" />
+    <Compile Include="Entities\CUser.cs" />
     <Compile Include="Entities\CVisitRecord.cs" />
     <Compile Include="Entities\CWmtRain.cs" />
     <Compile Include="Entities\CWmtSoilMoisture.cs" />
