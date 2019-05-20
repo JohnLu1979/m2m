@@ -107,6 +107,7 @@
     <Compile Include="Debugging\DebugHelper.cs" />
     <Compile Include="Entities\CCustomer.cs" />
     <Compile Include="Entities\CIp.cs" />
+    <Compile Include="Entities\CRelation.cs" />
     <Compile Include="Entities\CStnInfoB.cs" />
     <Compile Include="Entities\CStnParaR.cs" />
     <Compile Include="Entities\CVisitRecord.cs" />
