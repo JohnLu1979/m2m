@@ -20,22 +20,25 @@ namespace MyTempProject.StnInfoB
     {
         private ISqlExecuter _sqlExecuter;
         private readonly IRepository<Entities.CStnInfoB, int> _stnInfoBRepository;
+        private readonly IRepository<Entities.CStnParaR, int> _stnPararRepository;
         public StnInfoBAppService(ISqlExecuter sqlExecuter,
             IRepository<Entities.CStnInfoB, int> stnInfoBRepository,
             IRepository<Entities.CCustomer, int> CustomerRepository,
             IRepository<Entities.CIp, int> IpRepository,
-            IRepository<Entities.CVisitRecord, int> VisitRecordRepository
+            IRepository<Entities.CVisitRecord, int> VisitRecordRepository,
+            IRepository<Entities.CStnParaR, int> stnPararRepository
             ) :base(CustomerRepository,IpRepository,VisitRecordRepository)
         {
             
             this._sqlExecuter = sqlExecuter;
             this._stnInfoBRepository = stnInfoBRepository;
+            this._stnPararRepository = stnPararRepository;
         }
 
         public CDataResults<CStnInfoBListDto> GetStnInfoB(CStnInfoBInput input)
         {
             //Check Ip & customer
-            if (!checkIPandCustomer(input.customerId))
+            if (!checkCustomer(input.customerId))
             {
                 AddVisitRecord(input.customerId, Entities.VisitRecordFlag.Black);
                 return new CDataResults<CStnInfoBListDto>() {
@@ -46,7 +49,7 @@ namespace MyTempProject.StnInfoB
             }
 
             //Extract data from DB
-            var query = this._stnInfoBRepository.GetAll();
+            var query = this._stnInfoBRepository.GetAll() ;
             if (!string.IsNullOrEmpty(input.areaName)) {
                 query.Where(r => r.areaName.Contains(input.areaName));
             }
@@ -69,7 +72,7 @@ namespace MyTempProject.StnInfoB
         public CDataResults<string> GetStType(CBaseInput input)
         {
             //Check Ip & customer
-            if (!checkIPandCustomer(input.customerId))
+            if (!checkCustomer(input.customerId))
             {
                 AddVisitRecord(input.customerId, Entities.VisitRecordFlag.Black);
                 return new CDataResults<string>()
@@ -81,7 +84,9 @@ namespace MyTempProject.StnInfoB
             }
 
             //Extract data from DB
-            var query = this._stnInfoBRepository.GetAll().Select(r => r.stType).Distinct();
+            var query =from  s in this._stnInfoBRepository.GetAll().Select(r => r.stType).Distinct()
+                       
+                       ;
             if (input.pageNumber.HasValue && input.pageNumber.Value > 0 && input.pageSize.HasValue)
             {
                 query = query.OrderBy(r => r).Take(input.pageSize.Value * input.pageNumber.Value).Skip(input.pageSize.Value * (input.pageNumber.Value - 1));

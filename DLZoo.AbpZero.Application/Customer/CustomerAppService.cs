@@ -38,7 +38,7 @@ namespace MyTempProject.Customer
         public CDataResults<CCustomerListDto> GetCustomer(CCustomerInput input)
         {
             //Check Ip & customer
-            if (!checkIPandCustomer(input.customerId))
+            if (!checkCustomer(input.customerId))
             {
                 AddVisitRecord(input.customerId, Entities.VisitRecordFlag.Black);
                 return new CDataResults<CCustomerListDto>() {

@@ -34,7 +34,7 @@ namespace MyTempProject.Relation
         }
         public CDataResults<CRelationListDto> AddRelations(CRelationInput input)
         {
-            if (!checkIPandCustomer(input.customer_id))
+            if (!checkCustomer(input.customer_id))
             {
                 AddVisitRecord(input.customerId, Entities.VisitRecordFlag.Black);
                 return new CDataResults<CRelationListDto>()
@@ -71,7 +71,7 @@ namespace MyTempProject.Relation
 
         public CDataResults<CRelationListDto> GetRelations(CRelationInput input)
         {
-            if (!checkIPandCustomer(input.customer_id))
+            if (!checkCustomer(input.customer_id))
             {
                 AddVisitRecord(input.customerId, Entities.VisitRecordFlag.Black);
                 return new CDataResults<CRelationListDto>()

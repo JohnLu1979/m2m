@@ -44,7 +44,10 @@ namespace MyTempProject.Base
         protected bool checkIPandCustomer(int customerId) {
             return CheckIP() && CheckCustomer(customerId);
         }
-
+        protected bool checkCustomer(int customerId)
+        {
+            return  CheckCustomer(customerId);
+        }
         protected bool CheckIP() {
             var ip = this._ipRepository.FirstOrDefault(c => c.IP == RequestIP);
             return ip != null;
