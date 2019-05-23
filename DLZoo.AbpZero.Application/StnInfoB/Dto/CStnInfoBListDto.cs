@@ -26,6 +26,7 @@ namespace MyTempProject.StnInfoB.Dto
         public virtual string posCode { get; set; }
         public virtual string posName { get; set; }
         public virtual string stType { get; set; }
+
         public virtual string photo { get; set; }
         public virtual int? parentid { get; set; }
         public virtual int? temporary { get; set; }
