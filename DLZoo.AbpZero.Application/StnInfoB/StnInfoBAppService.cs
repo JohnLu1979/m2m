@@ -49,30 +49,31 @@ namespace MyTempProject.StnInfoB
             }
 
             //Extract data from DB
-            //var query =  this._stnInfoBRepository.GetAll() ;
-            //if (!string.IsNullOrEmpty(input.areaName)) {
-            //    query.Where(r => r.areaName.Contains(input.areaName));
-            //}
-            var query = from s in _stnInfoBRepository.GetAll()
-                        join p in this._stnPararRepository.GetAll() on s.areaCode equals  p.stcd into temp
-                        from ur in temp.DefaultIfEmpty()
-                        orderby s.areaName ascending
-                        select new CStnInfoBListDto
-                        {
-                            Id = s.Id,
-                            areaCode = s.areaCode,
-                            areaName = s.areaName,
-                            stType = ur.paraTypeCode,
-                            stlc = s.stlc
-                        };
+            var query = this._stnInfoBRepository.GetAll();
+            if (!string.IsNullOrEmpty(input.areaName))
+            {
+                query.Where(r => r.areaName.Contains(input.areaName));
+            }
+            //var query = from s in _stnInfoBRepository.GetAll()
+            //            join p in this._stnPararRepository.GetAll() on s.areaCode equals  p.stcd into temp
+            //            from ur in temp.DefaultIfEmpty()
+            //            orderby s.areaName ascending
+            //            select new CStnInfoBListDto
+            //            {
+            //                Id = s.Id,
+            //                areaCode = s.areaCode,
+            //                areaName = s.areaName,
+            //                stType = ur.paraTypeCode,
+            //                stlc = s.stlc
+            //            };
 
 
-            //if (input.pageNumber.HasValue && input.pageNumber.Value > 0 && input.pageSize.HasValue)
-            //{
-            //    query = query.OrderBy(r => r.Id).Take(input.pageSize.Value * input.pageNumber.Value).Skip(input.pageSize.Value * (input.pageNumber.Value - 1));
-            //}
+            if (input.pageNumber.HasValue && input.pageNumber.Value > 0 && input.pageSize.HasValue)
+            {
+                query = query.OrderBy(r => r.Id).Take(input.pageSize.Value * input.pageNumber.Value).Skip(input.pageSize.Value * (input.pageNumber.Value - 1));
+            }
 
-            var result = query.ToList();
+            var result = query.ToList().MapTo<List<CStnInfoBListDto>>(); ;
             //Add visit record
             AddVisitRecord(input.customerId, Entities.VisitRecordFlag.White);
             return new CDataResults<CStnInfoBListDto>()
