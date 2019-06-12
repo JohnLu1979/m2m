@@ -101,6 +101,18 @@ namespace MyTempProject.WmtRsvr
                             uniquemark = r.uniquemark,
                             gentm = r.gentm
                         };
+            if (input.fromTime != null)
+            {
+                query = query.Where(r => r.collecttime > input.fromTime);
+            }
+            if (input.toTime != null)
+            {
+                query = query.Where(r => r.collecttime < input.toTime);
+            }
+            if (!string.IsNullOrEmpty(input.stcd))
+            {
+                query = query.Where(r => r.stcd == input.stcd);
+            }
             if (input.pageNumber.HasValue && input.pageNumber.Value > 0 && input.pageSize.HasValue)
             {
                 query = query.OrderByDescending(r => r.collecttime).Take(input.pageSize.Value * input.pageNumber.Value).Skip(input.pageSize.Value * (input.pageNumber.Value - 1));

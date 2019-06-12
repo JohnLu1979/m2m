@@ -9,5 +9,8 @@ namespace MyTempProject.WmtRain.Dto
 {
     public class CWmtRainInput : CBaseInput
     {
+        public string stcd { get; set; }
+        public DateTime? fromTime { get; set; }
+        public DateTime? toTime { get; set; }
     }
 }

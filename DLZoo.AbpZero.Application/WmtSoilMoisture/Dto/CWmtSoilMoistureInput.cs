@@ -9,5 +9,8 @@ namespace MyTempProject.WmtSoilMoisture.Dto
 {
     public class CWmtSoilMoistureInput : CBaseInput
     {
+        public string stcd { get; set; }
+        public DateTime? fromTime { get; set; }
+        public DateTime? toTime { get; set; }
     }
 }
