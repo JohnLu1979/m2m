@@ -122,7 +122,8 @@ namespace MyTempProject.WmtSoilMoisture
             {
                 IsSuccess = true,
                 ErrorMessage = null,
-                Data = result
+                Data = result,
+                Total= query.Count()
             };
         }
     }

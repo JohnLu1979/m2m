@@ -13,6 +13,7 @@ using System.Web;
 using MyTempProject.StnInfoB.Dto;
 using MyTempProject.Base;
 using MyTempProject.Base.Dto;
+using Abp.Application.Services.Dto;
 
 namespace MyTempProject.StnInfoB
 {
@@ -27,9 +28,9 @@ namespace MyTempProject.StnInfoB
             IRepository<Entities.CIp, int> IpRepository,
             IRepository<Entities.CVisitRecord, int> VisitRecordRepository,
             IRepository<Entities.CStnParaR, int> stnPararRepository
-            ) :base(CustomerRepository,IpRepository,VisitRecordRepository)
+            ) : base(CustomerRepository, IpRepository, VisitRecordRepository)
         {
-            
+
             this._sqlExecuter = sqlExecuter;
             this._stnInfoBRepository = stnInfoBRepository;
             this._stnPararRepository = stnPararRepository;
@@ -41,7 +42,8 @@ namespace MyTempProject.StnInfoB
             if (!checkCustomer(input.customerId))
             {
                 AddVisitRecord(input.customerId, Entities.VisitRecordFlag.Black);
-                return new CDataResults<CStnInfoBListDto>() {
+                return new CDataResults<CStnInfoBListDto>()
+                {
                     IsSuccess = false,
                     ErrorMessage = "Validation failed.",
                     Data = null
@@ -81,7 +83,7 @@ namespace MyTempProject.StnInfoB
                 IsSuccess = true,
                 ErrorMessage = null,
                 Data = result
-            }; 
+            };
         }
 
         public CDataResults<string> GetStType(CBaseInput input)
@@ -99,7 +101,7 @@ namespace MyTempProject.StnInfoB
             }
 
             //Extract data from DB
-            var query =this._stnInfoBRepository.GetAll().Select(r => r.stType).Distinct();
+            var query = this._stnInfoBRepository.GetAll().Select(r => r.stType).Distinct();
             if (input.pageNumber.HasValue && input.pageNumber.Value > 0 && input.pageSize.HasValue)
             {
                 query = query.OrderBy(r => r).Take(input.pageSize.Value * input.pageNumber.Value).Skip(input.pageSize.Value * (input.pageNumber.Value - 1));
@@ -112,8 +114,22 @@ namespace MyTempProject.StnInfoB
             {
                 IsSuccess = true,
                 ErrorMessage = null,
-                Data = result
+                Data = result,
+                Total = query.Count()
             };
+        }
+       
+        public CStnInfoBListDto GetStnInfoDetail(NullableIdInput input)
+        {
+            var query = this._stnInfoBRepository.FirstOrDefault(p => p.Id == input.Id);
+             var result = query.MapTo<CStnInfoBListDto>();
+            //return new CDataResults<CStnInfoBListDto>
+            //{
+            //    IsSuccess = true,
+            //    ErrorMessage = null,
+            //    Data = query
+            //};
+            return result;
         }
     }
 }

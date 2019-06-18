@@ -41,7 +41,8 @@ namespace MyTempProject.StnParaR
                 return new CDataResults<CStnParaRListDto>() {
                     IsSuccess = false,
                     ErrorMessage = "Validation failed.",
-                    Data = null
+                    Data = null,
+                    Total = 0
                 };
             }
 
@@ -59,7 +60,8 @@ namespace MyTempProject.StnParaR
             {
                 IsSuccess = true,
                 ErrorMessage = null,
-                Data = result
+                Data = result,
+                Total = query.Count()
             }; 
         }
         

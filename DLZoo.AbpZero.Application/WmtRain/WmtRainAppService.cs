@@ -47,7 +47,8 @@ namespace MyTempProject.WmtRain
                 {
                     IsSuccess = false,
                     ErrorMessage = "Validation failed.",
-                    Data = null
+                    Data = null,
+                    Total=0
                 };
             }
 
@@ -66,7 +67,8 @@ namespace MyTempProject.WmtRain
             {
                 IsSuccess = true,
                 ErrorMessage = null,
-                Data = result
+                Data = result,
+                Total= query.Count()
             };
         }
 
@@ -111,6 +113,8 @@ namespace MyTempProject.WmtRain
             if (!string.IsNullOrEmpty(input.stcd)) {
                 query = query.Where(r => r.stcd == input.stcd);
             }
+
+            var totla = query.Count();
             if (input.pageNumber.HasValue && input.pageNumber.Value > 0 && input.pageSize.HasValue)
             {
                 query = query.OrderByDescending(r => r.collecttime).Take(input.pageSize.Value * input.pageNumber.Value).Skip(input.pageSize.Value * (input.pageNumber.Value - 1));
@@ -123,7 +127,8 @@ namespace MyTempProject.WmtRain
             {
                 IsSuccess = true,
                 ErrorMessage = null,
-                Data = result
+                Data = result,
+                Total= totla
             };
         }
     }

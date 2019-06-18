@@ -68,7 +68,7 @@ namespace MyTempProject.Relation
             };
 
         }
-
+        
         public CDataResults<CRelationListDto> GetRelations(CRelationInput input)
         {
             if (!checkCustomer(input.customer_id))
@@ -89,7 +89,8 @@ namespace MyTempProject.Relation
             {
                 IsSuccess = true,
                 ErrorMessage = null,
-                Data = result
+                Data = result,
+                Total = relationList.Count()
             };
         }
     }

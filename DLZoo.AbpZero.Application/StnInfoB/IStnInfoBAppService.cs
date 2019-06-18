@@ -1,4 +1,5 @@
 ﻿using Abp.Application.Services;
+using Abp.Application.Services.Dto;
 using MyTempProject.Base.Dto;
 using MyTempProject.StnInfoB.Dto;
 using System;
@@ -13,5 +14,6 @@ namespace MyTempProject.StnInfoB
     {
         CDataResults<CStnInfoBListDto> GetStnInfoB(CStnInfoBInput input);
         CDataResults<string> GetStType(CBaseInput input);
+        CStnInfoBListDto GetStnInfoDetail(NullableIdInput input);
     }
 }

@@ -11,5 +11,7 @@ namespace MyTempProject.Base.Dto
         public bool IsSuccess { get; set; }
         public string ErrorMessage { get; set; }
         public List<T> Data { get; set; }
+
+        public int Total { get; set; }
     }
 }

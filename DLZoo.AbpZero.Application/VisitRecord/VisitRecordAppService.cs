@@ -58,7 +58,8 @@ namespace MyTempProject.VisitRecord
             {
                 IsSuccess = true,
                 ErrorMessage = null,
-                Data = result
+                Data = result,
+                Total = query.Count()
             }; 
         }
 

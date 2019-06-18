@@ -126,7 +126,8 @@ namespace MyTempProject.WmtRiver
             {
                 IsSuccess = true,
                 ErrorMessage = null,
-                Data = result
+                Data = result,
+                Total= query.Count()
             };
         }
     }

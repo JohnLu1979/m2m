@@ -9,6 +9,7 @@ namespace MyTempProject.StnInfoB.Dto
 {
     public class CStnInfoBInput : CBaseInput
     {
+        public int Id { get; set; }
         public string areaName { get; set; }
     }
 }
