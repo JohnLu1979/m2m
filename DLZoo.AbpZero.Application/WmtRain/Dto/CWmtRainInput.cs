@@ -12,5 +12,6 @@ namespace MyTempProject.WmtRain.Dto
         public string stcd { get; set; }
         public DateTime? fromTime { get; set; }
         public DateTime? toTime { get; set; }
+        public string visitType { get; set; }
     }
 }
