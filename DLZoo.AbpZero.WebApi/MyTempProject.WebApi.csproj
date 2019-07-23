@@ -176,7 +176,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="WebApi\AbpZeroTemplateApiControllerBase.cs" />
     <Compile Include="WebApi\AbpZeroTemplateWebApiModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -199,6 +198,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Start\" />
     <Folder Include="WebApi\Controllers\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
