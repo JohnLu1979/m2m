@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Abp.Domain.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -9,11 +10,13 @@ using System.Threading.Tasks;
 namespace MyTempProject.Entities
 {
     [Table("adm_administration_b")]
-    public class CAdministrationB
+    public class CAdministrationB:Entity<string>
     {
         [Required]
         [MaxLength(50)]
-        public virtual string addvcd { get; set; }
+        [Column("addvcd")]
+        public virtual string id { get; set; }
+        //public virtual string addvcd { get; set; }
         
         public virtual string addvname { get; set; }
 
