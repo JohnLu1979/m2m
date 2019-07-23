@@ -12,10 +12,8 @@ namespace MyTempProject.Entities
     [Table("adm_administration_b")]
     public class CAdministrationB:Entity<string>
     {
-        [Required]
-        [MaxLength(50)]
         [Column("addvcd")]
-        public virtual string Id { get; set; }
+        public override string Id { get; set; }
         //public virtual string addvcd { get; set; }
 
         public virtual string addvname { get; set; }
