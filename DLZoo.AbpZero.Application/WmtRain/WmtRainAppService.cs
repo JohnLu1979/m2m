@@ -48,7 +48,7 @@ namespace MyTempProject.WmtRain
                     IsSuccess = false,
                     ErrorMessage = "Validation failed.",
                     Data = null,
-                    Total=0
+                    Total = 0
                 };
             }
 
@@ -68,13 +68,16 @@ namespace MyTempProject.WmtRain
                 IsSuccess = true,
                 ErrorMessage = null,
                 Data = result,
-                Total= query.Count()
+                Total = query.Count()
             };
         }
+
 
         public CDataResults<CWmtRainDetailListDto> GetWmtRainDetail(CWmtRainInput input)
         {
             //Check Ip & customer
+
+
             if (!checkIPandCustomer(input.customerId))
             {
                 AddVisitRecord(input.customerId, Entities.VisitRecordFlag.Black);
@@ -103,14 +106,16 @@ namespace MyTempProject.WmtRain
                             uniquemark = r.uniquemark,
                             gentm = r.gentm
                         };
-            if (input.fromTime != null) {
+            if (input.fromTime != null)
+            {
                 query = query.Where(r => r.collecttime > input.fromTime);
             }
             if (input.toTime != null)
             {
                 query = query.Where(r => r.collecttime < input.toTime);
             }
-            if (!string.IsNullOrEmpty(input.stcd)) {
+            if (!string.IsNullOrEmpty(input.stcd))
+            {
                 query = query.Where(r => r.stcd == input.stcd);
             }
 
@@ -128,8 +133,13 @@ namespace MyTempProject.WmtRain
                 IsSuccess = true,
                 ErrorMessage = null,
                 Data = result,
-                Total= totla
+                Total = totla
             };
+        }
+
+        public CDataResults<CWmtRainTotalDto> GetWmtRainTotal(CWmtRainInput input)
+        {
+            return null;
         }
     }
 }

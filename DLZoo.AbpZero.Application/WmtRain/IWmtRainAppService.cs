@@ -8,5 +8,7 @@ namespace MyTempProject.WmtRain
     {
         CDataResults<CWmtRainListDto> GetWmtRain(CWmtRainInput input);
         CDataResults<CWmtRainDetailListDto> GetWmtRainDetail(CWmtRainInput input);
+
+        CDataResults<CWmtRainTotalDto> GetWmtRainTotal(CWmtRainInput input);
     }
 }
