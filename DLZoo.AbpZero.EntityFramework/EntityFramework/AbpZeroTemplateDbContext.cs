@@ -28,8 +28,9 @@ namespace MyTempProject.EntityFramework
         public virtual IDbSet<CVisitRecord> CVisitRecordObjects { get; set; }
         public virtual IDbSet<CRelation> CRelationObjects { get; set; }
         public virtual IDbSet<CUser> CUserObjects { get; set; }
+        public virtual IDbSet<CAdministrationB> CAdministrationBs { get; set; }
 
-        
+
         /* Setting "Default" to base class helps us when working migration commands on Package Manager Console.
          * But it may cause problems when working Migrate.exe of EF. ABP works either way.         * 
          */
