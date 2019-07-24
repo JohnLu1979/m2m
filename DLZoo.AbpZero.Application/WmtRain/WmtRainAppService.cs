@@ -78,7 +78,11 @@ namespace MyTempProject.WmtRain
         }
         
         public CDataResults<CWmtRainDetailListDto> GetWmtRainDetailFromMobile(CWmtRainInput input)
-        {//Extract data from DB
+        {
+            //input.stcd = "00065156";
+            //input.fromTime = new DateTime(2017, 9, 2, 12, 0, 0);
+            //input.toTime = new DateTime(2017,9,3,12,0,0);
+            //Extract data from DB
             var query = from r in _wmtRainRepository.GetAll()
                         join s in _stnInfoBRepository.GetAll() on r.stcd equals s.areaCode
                         join res in _relationReposity.GetAll() on s.Id equals res.site_id
@@ -251,7 +255,7 @@ namespace MyTempProject.WmtRain
         }
         public CDataResults<CWmtRainTotalByHoursDto> GetWmtRainTotalByHours(CWmtRainInput input)
         {
-            var now = new DateTime(2017, 8, 30);//DateTime.Now;//
+            var now = DateTime.Now;//new DateTime(2017, 8, 30);//
             var beforeYesterday = now.AddDays(-2);
             var oneHourAgo = now.AddHours(-1);
             var threeHoursAgo = now.AddHours(-3);
@@ -260,7 +264,7 @@ namespace MyTempProject.WmtRain
             var twentyFourHoursAgo = now.AddHours(-24);
             var addvcdArray = (input.addvcdArray == null) ? new string[] { } : input.addvcdArray.ToArray();
             var addvcdArrayLength = addvcdArray.Length;
-            var query = from allData in (from site in _stnInfoBRepository.GetAll().Where(s => addvcdArrayLength == 0 || addvcdArray.Contains(s.addvcd))
+            var query = from allData in (from site in _stnInfoBRepository.GetAll().Where(s => addvcdArrayLength == 0 || addvcdArray.Any(a => a == s.addvcd.Substring(0,a.Length)))//.Contains(s.addvcd)
                                          join rain in _wmtRainRepository.GetAll().Where(r => r.collecttime != null && r.collecttime >= beforeYesterday && r.collecttime < now) on site.areaCode equals rain.stcd into temp
                                          from cr in temp.DefaultIfEmpty()
                                          join admin in _administrationBReposity.GetAll() on site.addvcd equals admin.Id into relation
