@@ -12,7 +12,7 @@ namespace MyTempProject.Entities
     [Table("user")]
     public class CUser : Entity<int>
     {
-        [MaxLength(50)] 
+        [MaxLength(50)]
         public virtual string username { get; set; }
         [MaxLength(50)]
         public virtual string password { get; set; }
