@@ -77,23 +77,8 @@ namespace MyTempProject.WmtRain
             };
         }
 
-
-        public CDataResults<CWmtRainDetailListDto> GetWmtRainDetail(CWmtRainInput input)
+        private Tuple<int, List<CWmtRainDetailListDto>> GetRainTail(CWmtRainInput input)
         {
-            //Check Ip & customer
-
-
-            if (!checkIPandCustomer(input.customerId))
-            {
-                AddVisitRecord(input.customerId, Entities.VisitRecordFlag.Black);
-                return new CDataResults<CWmtRainDetailListDto>()
-                {
-                    IsSuccess = false,
-                    ErrorMessage = "Validation failed.",
-                    Data = null
-                };
-            }
-
             //Extract data from DB
             var query = from r in _wmtRainRepository.GetAll()
                         join s in _stnInfoBRepository.GetAll() on r.stcd equals s.areaCode
@@ -131,14 +116,47 @@ namespace MyTempProject.WmtRain
             }
 
             var result = query.ToList();
+            return new Tuple<int, List<CWmtRainDetailListDto>>(totla, result);
+        }
+
+        public CDataResults<CWmtRainDetailListDto> GetWmtRainDetailFromMobile(CWmtRainInput input)
+        {
+            //Extract data from DB
+            var result = GetRainTail(input);
+            return new CDataResults<CWmtRainDetailListDto>()
+            {
+                IsSuccess = true,
+                ErrorMessage = null,
+                Data = result.Item2,
+                Total = result.Item1
+            };
+        }
+        public CDataResults<CWmtRainDetailListDto> GetWmtRainDetail(CWmtRainInput input)
+        {
+            //Check Ip & customer
+
+
+            if (!checkIPandCustomer(input.customerId))
+            {
+                AddVisitRecord(input.customerId, Entities.VisitRecordFlag.Black);
+                return new CDataResults<CWmtRainDetailListDto>()
+                {
+                    IsSuccess = false,
+                    ErrorMessage = "Validation failed.",
+                    Data = null
+                };
+            }
+
+            //Extract data from DB
+            var result = GetRainTail(input);
             //Add visit record
             AddVisitRecord(input.customerId, Entities.VisitRecordFlag.White);
             return new CDataResults<CWmtRainDetailListDto>()
             {
                 IsSuccess = true,
                 ErrorMessage = null,
-                Data = result,
-                Total = totla
+                Data = result.Item2,
+                Total = result.Item1
             };
         }
 
@@ -199,13 +217,13 @@ namespace MyTempProject.WmtRain
             var twentyFourHoursAgo = now.AddHours(-24);
             var addvcdArray = (input.addvcdArray == null) ? new string[] { } : input.addvcdArray.ToArray();
             var addvcdArrayLength = addvcdArray.Length;
-            var query = from allData in (from site in _stnInfoBRepository.GetAll()
-                                         join rain in _wmtRainRepository.GetAll() on site.areaCode equals rain.stcd into temp
+            var query = from allData in (from site in _stnInfoBRepository.GetAll().Where(s => addvcdArrayLength == 0 || addvcdArray.Contains(s.addvcd))
+                                         join rain in _wmtRainRepository.GetAll().Where(r => r.collecttime != null && r.collecttime >= beforeYesterday && r.collecttime < now) on site.areaCode equals rain.stcd into temp
                                          from cr in temp.DefaultIfEmpty()
                                          join admin in _administrationBReposity.GetAll() on site.addvcd equals admin.Id into relation
                                          from data in relation.DefaultIfEmpty()
-                                         where cr.collecttime != null && cr.collecttime >= beforeYesterday && cr.collecttime < now &&
-                                            (addvcdArrayLength == 0 || addvcdArray.Contains(site.addvcd))//((addvcdArray == null)? ((input.addvcd ==null) ? true : site.addvcd.StartsWith(input.addvcd)) : addvcdArray.Contains(site.addvcd))
+                                         //where cr.collecttime != null && cr.collecttime >= beforeYesterday && cr.collecttime < now &&
+                                            // (addvcdArrayLength == 0 || addvcdArray.Contains(site.addvcd))//((addvcdArray == null)? ((input.addvcd ==null) ? true : site.addvcd.StartsWith(input.addvcd)) : addvcdArray.Contains(site.addvcd))
                                          select new
                                          {
                                              areaCode = site.areaCode,
