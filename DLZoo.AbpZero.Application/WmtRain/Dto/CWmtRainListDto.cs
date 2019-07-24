@@ -31,7 +31,7 @@ namespace MyTempProject.WmtRain.Dto
         public virtual string uniquemark { get; set; }
         public virtual DateTime gentm { get; set; }
     }
-
+ 
 
     public class CWmtRainTotalDto : Entity<int>
     {
