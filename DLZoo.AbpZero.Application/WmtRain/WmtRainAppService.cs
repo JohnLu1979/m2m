@@ -76,9 +76,68 @@ namespace MyTempProject.WmtRain
                 Total = query.Count()
             };
         }
+        
+        public CDataResults<CWmtRainDetailListDto> GetWmtRainDetailFromMobile(CWmtRainInput input)
+        {//Extract data from DB
+            var query = from r in _wmtRainRepository.GetAll()
+                        join s in _stnInfoBRepository.GetAll() on r.stcd equals s.areaCode
+                        join res in _relationReposity.GetAll() on s.Id equals res.site_id
+                        orderby r.collecttime
+                        select new CWmtRainDetailListDto
+                        {
+                            areaCode = s.areaCode,
+                            areaName = s.areaName,
+                            stcd = r.stcd,
+                            paravalue = r.paravalue,
+                            collecttime = r.collecttime,
+                            systemtime = r.systemtime,
+                            uniquemark = r.uniquemark,
+                            gentm = r.gentm
+                        };
+            if (input.fromTime != null)
+            {
+                query = query.Where(r => r.collecttime > input.fromTime);
+            }
+            if (input.toTime != null)
+            {
+                query = query.Where(r => r.collecttime < input.toTime);
+            }
+            if (!string.IsNullOrEmpty(input.stcd))
+            {
+                query = query.Where(r => r.stcd == input.stcd);
+            }
 
-        private Tuple<int, List<CWmtRainDetailListDto>> GetRainTail(CWmtRainInput input)
+            var totla = query.Count();
+            if (input.pageNumber.HasValue && input.pageNumber.Value > 0 && input.pageSize.HasValue)
+            {
+                query = query.OrderByDescending(r => r.collecttime).Take(input.pageSize.Value * input.pageNumber.Value).Skip(input.pageSize.Value * (input.pageNumber.Value - 1));
+            }
+
+            var result = query.ToList();
+            return new CDataResults<CWmtRainDetailListDto>()
+            {
+                IsSuccess = true,
+                ErrorMessage = null,
+                Data = result,
+                Total = totla
+            };
+        }
+        public CDataResults<CWmtRainDetailListDto> GetWmtRainDetail(CWmtRainInput input)
         {
+            //Check Ip & customer
+
+
+            if (!checkIPandCustomer(input.customerId))
+            {
+                AddVisitRecord(input.customerId, Entities.VisitRecordFlag.Black);
+                return new CDataResults<CWmtRainDetailListDto>()
+                {
+                    IsSuccess = false,
+                    ErrorMessage = "Validation failed.",
+                    Data = null
+                };
+            }
+
             //Extract data from DB
             var query = from r in _wmtRainRepository.GetAll()
                         join s in _stnInfoBRepository.GetAll() on r.stcd equals s.areaCode
@@ -116,47 +175,14 @@ namespace MyTempProject.WmtRain
             }
 
             var result = query.ToList();
-            return new Tuple<int, List<CWmtRainDetailListDto>>(totla, result);
-        }
-
-        public CDataResults<CWmtRainDetailListDto> GetWmtRainDetailFromMobile(CWmtRainInput input)
-        {
-            //Extract data from DB
-            var result = GetRainTail(input);
-            return new CDataResults<CWmtRainDetailListDto>()
-            {
-                IsSuccess = true,
-                ErrorMessage = null,
-                Data = result.Item2,
-                Total = result.Item1
-            };
-        }
-        public CDataResults<CWmtRainDetailListDto> GetWmtRainDetail(CWmtRainInput input)
-        {
-            //Check Ip & customer
-
-
-            if (!checkIPandCustomer(input.customerId))
-            {
-                AddVisitRecord(input.customerId, Entities.VisitRecordFlag.Black);
-                return new CDataResults<CWmtRainDetailListDto>()
-                {
-                    IsSuccess = false,
-                    ErrorMessage = "Validation failed.",
-                    Data = null
-                };
-            }
-
-            //Extract data from DB
-            var result = GetRainTail(input);
             //Add visit record
             AddVisitRecord(input.customerId, Entities.VisitRecordFlag.White);
             return new CDataResults<CWmtRainDetailListDto>()
             {
                 IsSuccess = true,
                 ErrorMessage = null,
-                Data = result.Item2,
-                Total = result.Item1
+                Data = result,
+                Total = totla
             };
         }
 
@@ -250,10 +276,11 @@ namespace MyTempProject.WmtRain
                                              collecttime = cr.collecttime,
                                              paravalue = cr.paravalue
                                          })
-                        group allData by new { allData.areaName, allData.addvname } into lst
+                        group allData by new { allData.areaName, allData.areaCode, allData.addvname } into lst
                         select new CWmtRainTotalByHoursDto
                         {
                             areaName = lst.Key.areaName,
+                            areaCode = lst.Key.areaCode,
                             addvname = lst.Key.addvname,
                             total_1 = lst.Where(t => t.collecttime > oneHourAgo).Sum(c => c.paravalue) == null ? 0 : lst.Sum(c => c.paravalue),
                             total_3 = lst.Where(t => t.collecttime > threeHoursAgo).Sum(c => c.paravalue) == null ? 0 : lst.Sum(c => c.paravalue),
