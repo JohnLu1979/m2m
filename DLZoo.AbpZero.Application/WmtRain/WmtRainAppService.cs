@@ -177,36 +177,22 @@ namespace MyTempProject.WmtRain
 
         public CDataResults<CWmtRainTotalByHoursDto> GetWmtRainTotalByHours(CWmtRainInput input)
         {
-            var now = DateTime.Now;//new DateTime(2017, 8, 30);//
+            var now = new DateTime(2017, 8, 30);//DateTime.Now;//
             var beforeYesterday = now.AddDays(-2);
             var oneHourAgo = now.AddHours(-1);
             var threeHoursAgo = now.AddHours(-3);
             var sixHoursAgo = now.AddHours(-6);
             var twelveHoursAgo = now.AddHours(-12);
             var twentyFourHoursAgo = now.AddHours(-24);
-            var query1 = from site in _stnInfoBRepository.GetAll()
-                         join rain in _wmtRainRepository.GetAll() on site.areaCode equals rain.stcd into temp
-                         from cr in temp.DefaultIfEmpty()
-                         join admin in _administrationBReposity.GetAll() on site.addvcd equals admin.Id into relation
-                         from data in relation.DefaultIfEmpty()
-                         where cr.collecttime != null && cr.collecttime >= beforeYesterday && cr.collecttime < now && site.addvcd.StartsWith(input.addvcd)
-                         select new
-                         {
-                             areaCode = site.areaCode,
-                             areaName = site.areaName,
-                             addvcd = site.addvcd,
-                             addvname = data.addvname,
-                             collecttime = cr.collecttime,
-                             paravalue = cr.paravalue
-                         };
-            var tt = query1.ToList();
-            //return null;
+            var addvcdArray = (input.addvcdArray == null) ? new string[] { } : input.addvcdArray.ToArray();
+            var addvcdArrayLength = addvcdArray.Length;
             var query = from allData in (from site in _stnInfoBRepository.GetAll()
                                          join rain in _wmtRainRepository.GetAll() on site.areaCode equals rain.stcd into temp
                                          from cr in temp.DefaultIfEmpty()
                                          join admin in _administrationBReposity.GetAll() on site.addvcd equals admin.Id into relation
                                          from data in relation.DefaultIfEmpty()
-                                         where cr.collecttime != null && cr.collecttime >= beforeYesterday && cr.collecttime < now && site.addvcd.StartsWith(input.addvcd)
+                                         where cr.collecttime != null && cr.collecttime >= beforeYesterday && cr.collecttime < now && 
+                                            (addvcdArrayLength == 0 || addvcdArray.Contains(site.addvcd))//((addvcdArray == null)? ((input.addvcd ==null) ? true : site.addvcd.StartsWith(input.addvcd)) : addvcdArray.Contains(site.addvcd))
                                          select new
                                          {
                                              areaCode = site.areaCode,

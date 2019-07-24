@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace MyTempProject.AdministrationB.Dto
 {
     [AutoMapFrom(typeof(Entities.CAdministrationB))]
-    public class CAdministrationBListDto //: Entity<string>
+    public class CAdministrationBListDto : Entity<string>
     {
         public virtual string addvname { get; set; }
 
