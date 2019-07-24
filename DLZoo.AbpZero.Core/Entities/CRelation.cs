@@ -9,7 +9,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MyTempProject.Entities
-{
+{ 
     [Table("relation")]
    public class CRelation:Entity<int>
     {
