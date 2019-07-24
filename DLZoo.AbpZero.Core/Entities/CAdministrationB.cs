@@ -13,15 +13,17 @@ namespace MyTempProject.Entities
     {
         [Required]
         [MaxLength(50)]
-        public virtual string addvcd { get; set; }
-        
+
+        [Column("addvcd")]
+        public virtual string Id { get; set; }
+        //public virtual string addvcd { get; set; }
         public virtual string addvname { get; set; }
 
         public virtual string parentcd { get; set; }
 
-        public virtual string leafflag { get; set; }
+        public virtual int? leafflag { get; set; }
 
-        public virtual string levels { get; set; }
+        public virtual int? levels { get; set; }
 
         public virtual string areaid { get; set; }
     }
