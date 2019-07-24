@@ -72,23 +72,23 @@ namespace MyTempProject.WmtRain
             };
         }
 
+
         public CDataResults<CWmtRainDetailListDto> GetWmtRainDetail(CWmtRainInput input)
         {
             //Check Ip & customer
 
-            if (input.visitType != "mobile")
+
+            if (!checkIPandCustomer(input.customerId))
             {
-                if (!checkIPandCustomer(input.customerId))
+                AddVisitRecord(input.customerId, Entities.VisitRecordFlag.Black);
+                return new CDataResults<CWmtRainDetailListDto>()
                 {
-                    AddVisitRecord(input.customerId, Entities.VisitRecordFlag.Black);
-                    return new CDataResults<CWmtRainDetailListDto>()
-                    {
-                        IsSuccess = false,
-                        ErrorMessage = "Validation failed.",
-                        Data = null
-                    };
-                }
+                    IsSuccess = false,
+                    ErrorMessage = "Validation failed.",
+                    Data = null
+                };
             }
+
             //Extract data from DB
             var query = from r in _wmtRainRepository.GetAll()
                         join s in _stnInfoBRepository.GetAll() on r.stcd equals s.areaCode
@@ -135,6 +135,11 @@ namespace MyTempProject.WmtRain
                 Data = result,
                 Total = totla
             };
+        }
+
+        public CDataResults<CWmtRainTotalDto> GetWmtRainTotal(CWmtRainInput input)
+        {
+            return null;
         }
     }
 }
