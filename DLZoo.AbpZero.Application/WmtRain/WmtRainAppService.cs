@@ -22,20 +22,23 @@ namespace MyTempProject.WmtRain
         private readonly IRepository<Entities.CStnInfoB, int> _stnInfoBRepository;
         private readonly IRepository<Entities.CWmtRain, int> _wmtRainRepository;
         private readonly IRepository<Entities.CRelation, int> _relationReposity;
-        private readonly IRepository<Entities.CAdministrationB,string> _cAdminReposity;
+        private readonly IRepository<Entities.CAdministrationB, string> _administrationBReposity;
+
         public WmtRainAppService(
             IRepository<Entities.CStnInfoB, int> stnInfoBRepository,
             IRepository<Entities.CWmtRain, int> wmtRainRepository,
             IRepository<Entities.CCustomer, int> CustomerRepository,
             IRepository<Entities.CIp, int> IpRepository,
             IRepository<Entities.CVisitRecord, int> VisitRecordRepository,
-            IRepository<Entities.CRelation, int> relationReposity
+            IRepository<Entities.CRelation, int> relationReposity,
+            IRepository<Entities.CAdministrationB, string> administrationBReposity
             ) : base(CustomerRepository, IpRepository, VisitRecordRepository)
         {
 
             this._stnInfoBRepository = stnInfoBRepository;
             this._wmtRainRepository = wmtRainRepository;
             this._relationReposity = relationReposity;
+            this._administrationBReposity = administrationBReposity;
         }
 
         public CDataResults<CWmtRainListDto> GetWmtRain(CWmtRainInput input)
@@ -140,7 +143,37 @@ namespace MyTempProject.WmtRain
 
         public CDataResults<CWmtRainTotalDto> GetWmtRainTotal(CWmtRainInput input)
         {
-            return null;
+
+            var query = from allData in (from site in _stnInfoBRepository.GetAll()
+                                         join rain in _wmtRainRepository.GetAll() on site.areaCode equals rain.stcd into temp
+                                         from cr in temp.DefaultIfEmpty()
+                                         join admin in _administrationBReposity.GetAll() on site.addvcd equals admin.Id into relation
+                                         from data in relation.DefaultIfEmpty()
+                                             //  where cr.collecttime>=input.fromTime && cr.collecttime<=input.toTime
+                                         select new
+                                         {
+                                             areaCode = site.areaCode,
+
+                                             areaName = site.areaName,
+                                             addvcd = site.addvcd,
+                                             addvname = data.addvname,
+                                             paravalue = cr.paravalue
+                                         })
+                        group allData by allData.addvname into lst
+                        select new CWmtRainTotalDto
+                        {
+                            addvname = lst.Key,
+                            total = lst.Sum(c => c.paravalue) == null ? 0 : lst.Sum(c => c.paravalue)
+                        };
+            var result = query.ToList();
+            var totla = query.Count();
+            return new CDataResults<CWmtRainTotalDto>()
+            {
+                IsSuccess = true,
+                ErrorMessage = null,
+                Data = result,
+                Total = totla
+            };
         }
     }
 }
