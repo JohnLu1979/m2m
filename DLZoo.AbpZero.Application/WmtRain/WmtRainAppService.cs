@@ -24,6 +24,7 @@ namespace MyTempProject.WmtRain
         private readonly IRepository<Entities.CRelation, int> _relationReposity;
         private readonly IRepository<Entities.CAdministrationB, string> _administrationBReposity;
 
+ 
         public WmtRainAppService(
             IRepository<Entities.CStnInfoB, int> stnInfoBRepository,
             IRepository<Entities.CWmtRain, int> wmtRainRepository,

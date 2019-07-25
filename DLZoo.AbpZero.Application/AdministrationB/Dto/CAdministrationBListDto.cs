@@ -1,21 +1,17 @@
-﻿using Abp.Domain.Entities;
+﻿using Abp.AutoMapper;
+using Abp.Domain.Entities;
+using Abp.Domain.Entities.Auditing;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyTempProject.Entities
+namespace MyTempProject.AdministrationB.Dto
 {
-    [Table("adm_administration_b")]
-    public class CAdministrationB:Entity<string>
+    [AutoMapFrom(typeof(Entities.CAdministrationB))]
+    public class CAdministrationBListDto //: Entity<string>
     {
-        [Column("addvcd")]
-        public override string Id { get; set; }
-        //public virtual string addvcd { get; set; }
-
         public virtual string addvname { get; set; }
 
         public virtual string parentcd { get; set; }
@@ -27,3 +23,4 @@ namespace MyTempProject.Entities
         public virtual string areaid { get; set; }
     }
 }
+

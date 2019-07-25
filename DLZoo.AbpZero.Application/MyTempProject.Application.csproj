@@ -131,6 +131,10 @@
   <ItemGroup>
     <Compile Include="AbpZeroTemplateApplicationModule.cs" />
     <Compile Include="AbpZeroTemplateAppServiceBase.cs" />
+    <Compile Include="AdministrationB\Dto\CAdministrationBInput.cs" />
+    <Compile Include="AdministrationB\Dto\CAdministrationBListDto.cs" />
+    <Compile Include="AdministrationB\IAdministrationBAppService.cs" />
+    <Compile Include="AdministrationB\AdministrationBAppService.cs" />
     <Compile Include="AppConsts.cs" />
     <Compile Include="Base\CBaseAppService.cs" />
     <Compile Include="Base\Dto\CBaseInput.cs" />
