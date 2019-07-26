@@ -162,16 +162,17 @@ namespace MyTempProject.WmtRain
 
         public CDataResults<CWmtRainTotalDto> GetWmtRainTotal(CWmtRainInput input)
         {
-               var query = (from allData in (from region in _administrationBReposity.GetAll() where region.parentcd.Equals("2102")
+            var query = (from allData in (from region in _administrationBReposity.GetAll()
+                                          where region.parentcd.Equals("2102")
                                           join site in _stnInfoBRepository.GetAll() on region.Id equals site.addvcd into temp
-                                          from cr in temp.DefaultIfEmpty()           
+                                          from cr in temp.DefaultIfEmpty()
                                           join rain in _wmtRainRepository.GetAll().Where(c => c.collecttime >= input.fromTime && c.collecttime <= input.toTime) on cr.areaCode equals rain.stcd
                                           into relation
                                           from data in relation.DefaultIfEmpty()
                                           select new
                                           {
                                               addvname = region.addvname,
-                                              paravalue = data.paravalue 
+                                              paravalue = data.paravalue
                                           })
                          group allData by allData.addvname into lst
                          select new CWmtRainTotalDto
@@ -188,24 +189,40 @@ namespace MyTempProject.WmtRain
                 Data = result,
                 Total = totla
             };
-
-            //var query = from region in _administrationBReposity.GetAll()
-            //            join site in _stnInfoBRepository.GetAll() on region.Id equals site.addvcd into temp
-            //            from cr in temp.DefaultIfEmpty()
-            //            join rain in _wmtRainRepository.GetAll() on cr.areaCode equals rain.stcd
-            //            into relation
-            //            from data in relation.DefaultIfEmpty()
-            //            where data.collecttime >= input.fromTime && data.collecttime <= input.toTime
-            //            && region.parentcd.StartsWith("2102")
-            //            select new
-            //            {
-
-            //                addvname = region.addvname,
-            //                paravalue = data.paravalue
-            //            };
-            //return null;
         }
+        public string GetWmtRanTotalBySite(CWmtRainInput input)
+        {
+            var query = (from allData in (from region in _administrationBReposity.GetAll()
+                                          where region.parentcd.Equals("2102")
+                                          join site in _stnInfoBRepository.GetAll() on region.Id equals site.addvcd into temp
+                                          from cr in temp.DefaultIfEmpty()
+                                          join rain in _wmtRainRepository.GetAll().Where(c => c.collecttime >= input.fromTime && c.collecttime <= input.toTime) on cr.areaCode equals rain.stcd
+                                          into relation
+                                          from data in relation.DefaultIfEmpty()
+                                          select new
+                                          {
+                                              addvname = region.addvname,
+                                              areaName = cr.areaName,
+                                              paravalue = data.paravalue
+                                          })
+                         group allData by new { allData.addvname, allData.areaName } into lst
+                         select new
+                         {
+                             areaName = lst.Key,
+                             total = lst.Sum(c => c.paravalue) == null ? 0 : lst.Sum(c => c.paravalue)
+                         }).OrderByDescending(t => t.total);
+            var topArr = query.ToList();
+            var addvname = ""; var areaName = ""; var total = "";
+            if (topArr.Count > 0)
+            {
+                addvname = topArr[0].areaName.addvname;
+                areaName = topArr[0].areaName.areaName;
+                total = topArr[0].total.ToString();
 
+            }
+
+            return addvname + "|" + areaName + "|" + total;
+        }
         public CDataResults<CWmtRainTotalByHoursDto> GetWmtRainTotalByHours(CWmtRainInput input)
         {
             var now = new DateTime(2017, 8, 30);//DateTime.Now;//
@@ -222,8 +239,8 @@ namespace MyTempProject.WmtRain
                                          from cr in temp.DefaultIfEmpty()
                                          join admin in _administrationBReposity.GetAll() on site.addvcd equals admin.Id into relation
                                          from data in relation.DefaultIfEmpty()
-                                         //where cr.collecttime != null && cr.collecttime >= beforeYesterday && cr.collecttime < now &&
-                                            // (addvcdArrayLength == 0 || addvcdArray.Contains(site.addvcd))//((addvcdArray == null)? ((input.addvcd ==null) ? true : site.addvcd.StartsWith(input.addvcd)) : addvcdArray.Contains(site.addvcd))
+                                             //where cr.collecttime != null && cr.collecttime >= beforeYesterday && cr.collecttime < now &&
+                                             // (addvcdArrayLength == 0 || addvcdArray.Contains(site.addvcd))//((addvcdArray == null)? ((input.addvcd ==null) ? true : site.addvcd.StartsWith(input.addvcd)) : addvcdArray.Contains(site.addvcd))
                                          select new
                                          {
                                              areaCode = site.areaCode,
@@ -256,4 +273,8 @@ namespace MyTempProject.WmtRain
             };
         }
     }
+
+
+
+
 }
