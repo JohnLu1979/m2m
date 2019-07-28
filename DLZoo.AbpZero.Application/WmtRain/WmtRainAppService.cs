@@ -179,7 +179,7 @@ namespace MyTempProject.WmtRain
                          {
                              addvname = lst.Key,
                              total = lst.Sum(c => c.paravalue) == null ? 0 : lst.Sum(c => c.paravalue)
-                         }).OrderByDescending(t => t.total);
+                         }).OrderBy(t => t.total);
             var result = query.ToList();
             var totla = query.Count();
             return new CDataResults<CWmtRainTotalDto>()
@@ -190,7 +190,7 @@ namespace MyTempProject.WmtRain
                 Total = totla
             };
         }
-        public string GetWmtRanTotalBySite(CWmtRainInput input)
+        public CDataResults<CWmtRainTotalBySiteDto> GetWmtRainTotalBySite(CWmtRainInput input)
         {
             var query = (from allData in (from region in _administrationBReposity.GetAll()
                                           where region.parentcd.Equals("2102")
@@ -206,22 +206,21 @@ namespace MyTempProject.WmtRain
                                               paravalue = data.paravalue
                                           })
                          group allData by new { allData.addvname, allData.areaName } into lst
-                         select new
+                         select new CWmtRainTotalBySiteDto
                          {
-                             areaName = lst.Key,
+                             addvName = lst.Key.addvname,
+                             areaName=lst.Key.areaName,
                              total = lst.Sum(c => c.paravalue) == null ? 0 : lst.Sum(c => c.paravalue)
                          }).OrderByDescending(t => t.total);
-            var topArr = query.ToList();
-            var addvname = ""; var areaName = ""; var total = "";
-            if (topArr.Count > 0)
+            var result = query.ToList();
+            var totla = query.Count();
+            return new CDataResults<CWmtRainTotalBySiteDto>()
             {
-                addvname = topArr[0].areaName.addvname;
-                areaName = topArr[0].areaName.areaName;
-                total = topArr[0].total.ToString();
-
-            }
-
-            return addvname + "|" + areaName + "|" + total;
+                IsSuccess = true,
+                ErrorMessage = null,
+                Data = result,
+                Total = totla
+            };
         }
         public CDataResults<CWmtRainTotalByHoursDto> GetWmtRainTotalByHours(CWmtRainInput input)
         {
