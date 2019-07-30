@@ -111,19 +111,34 @@ namespace MyTempProject.WmtRain
             //    query = query.Where(r => r.stcd == input.stcd);
             //}
             query = query.OrderByDescending(r => r.paravalue);
-            var result = query.ToList().First();
-            var maxResult = new CWmtRainDetailListDto()
+           
+            if (query.Count()>0)
             {
-                areaName = result.areaName,
-                collecttime = new DateTime(result.year, result.month, result.day,result.hour,0,0),
-                paravalue = result.paravalue
-            };
-            return new CDataResult<CWmtRainDetailListDto>()
+                var result = query.ToList().First();
+                var maxResult = new CWmtRainDetailListDto()
+                {
+                    areaName = result.areaName,
+                    collecttime = new DateTime(result.year, result.month, result.day, result.hour, 0, 0),
+                    paravalue = result.paravalue
+                };
+                return new CDataResult<CWmtRainDetailListDto>()
+                {
+                    IsSuccess = true,
+                    ErrorMessage = null,
+                    Data = maxResult
+                };
+            }
+            else
             {
-                IsSuccess = true,
-                ErrorMessage = null,
-                Data = maxResult
-            };
+                return new CDataResult<CWmtRainDetailListDto>()
+                {
+                    IsSuccess = true,
+                    ErrorMessage = null,
+                    Data = null
+                };
+            }
+            
+           
         }
         public CDataResults<CWmtRainDetailListDto> GetWmtRainDetailFromMobile(CWmtRainInput input)
         {
