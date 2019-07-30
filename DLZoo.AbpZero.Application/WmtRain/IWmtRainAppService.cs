@@ -12,5 +12,6 @@ namespace MyTempProject.WmtRain
         CDataResults<CWmtRainTotalDto> GetWmtRainTotal(CWmtRainInput input);
         CDataResults<CWmtRainTotalByHoursDto> GetWmtRainTotalByHours(CWmtRainInput input);
         string GetWmtRanTotalBySite(CWmtRainInput input);
+        CDataResult<CWmtRainDetailListDto> GetMaxWmtRainHourTotalFromMobile(CWmtRainInput input);
     }
 }

@@ -76,7 +76,55 @@ namespace MyTempProject.WmtRain
                 Total = query.Count()
             };
         }
-        
+        public CDataResult<CWmtRainDetailListDto> GetMaxWmtRainHourTotalFromMobile(CWmtRainInput input) {
+            var query = (from allData in (from r in _wmtRainRepository.GetAll()
+                                          join s in _stnInfoBRepository.GetAll() on r.stcd equals s.areaCode
+                                          where (input.fromTime == null || r.collecttime> input.fromTime)
+                                          select new
+                                          {
+                                              areaName = s.areaName,
+                                              paravalue = r.paravalue,
+                                              year = r.collecttime.Year,
+                                              month = r.collecttime.Month,
+                                              day = r.collecttime.Day,
+                                              hour = r.collecttime.Hour,//.AddSeconds(-1 * r.collecttime.Second).AddMilliseconds(-1* r.collecttime.Millisecond),//new DateTime(r.collecttime.Year, r.collecttime.Month, r.collecttime.Day, r.collecttime.Hour, 0, 0, 0),
+                                          })
+                         group allData by new { allData.year, allData.month, allData.day, allData.hour, allData.areaName } into lst
+                         select new {
+                             areaName = lst.Key.areaName,
+                             year = lst.Key.year,
+                             month = lst.Key.month,
+                             day =lst.Key.day,
+                             hour = lst.Key.hour,
+                             paravalue = lst.Sum(c => c.paravalue)
+                         }) ;
+            //if (input.fromTime != null)
+            //{
+            //    query = query.Where(r => r.collecttime > input.fromTime);
+            //}
+            //if (input.toTime != null)
+            //{
+            //    query = query.Where(r => r.collecttime < input.toTime);
+            //}
+            //if (!string.IsNullOrEmpty(input.stcd))
+            //{
+            //    query = query.Where(r => r.stcd == input.stcd);
+            //}
+            query = query.OrderByDescending(r => r.paravalue);
+            var result = query.ToList().First();
+            var maxResult = new CWmtRainDetailListDto()
+            {
+                areaName = result.areaName,
+                collecttime = new DateTime(result.year, result.month, result.day,result.hour,0,0),
+                paravalue = result.paravalue
+            };
+            return new CDataResult<CWmtRainDetailListDto>()
+            {
+                IsSuccess = true,
+                ErrorMessage = null,
+                Data = maxResult
+            };
+        }
         public CDataResults<CWmtRainDetailListDto> GetWmtRainDetailFromMobile(CWmtRainInput input)
         {
             //input.stcd = "00065156";

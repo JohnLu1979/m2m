@@ -14,4 +14,11 @@ namespace MyTempProject.Base.Dto
 
         public int Total { get; set; }
     }
+
+    public class CDataResult<T>
+    {
+        public bool IsSuccess { get; set; }
+        public string ErrorMessage { get; set; }
+        public T Data { get; set; }
+    }
 }
