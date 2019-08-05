@@ -96,7 +96,7 @@ namespace MyTempProject.WmtRain
                              month = lst.Key.month,
                              day =lst.Key.day,
                              hour = lst.Key.hour,
-                             paravalue = lst.Sum(c => c.paravalue)
+                             paravalue = lst.Max(c => c.paravalue)
                          }) ;
             //if (input.fromTime != null)
             //{
@@ -144,7 +144,7 @@ namespace MyTempProject.WmtRain
         {
             //input.stcd = "00065156";
             //input.fromTime = new DateTime(2017, 9, 2, 12, 0, 0);
-            //input.toTime = new DateTime(2017,9,3,12,0,0);
+            //input.toTime = new DateTime(2017, 9, 3, 12, 0, 0);
             //Extract data from DB
             var query = from r in _wmtRainRepository.GetAll()
                         join s in _stnInfoBRepository.GetAll() on r.stcd equals s.areaCode
@@ -271,7 +271,7 @@ namespace MyTempProject.WmtRain
                          select new CWmtRainTotalDto
                          {
                              addvname = lst.Key,
-                             total = lst.Sum(c => c.paravalue) == null ? 0 : lst.Sum(c => c.paravalue)
+                             total = lst.Max(c => c.paravalue) - lst.Min(c => c.paravalue)//lst.Sum(c => c.paravalue) == null ? 0 : lst.Sum(c => c.paravalue)
                          }).OrderBy(t => t.total);
             var result = query.ToList();
             var totla = query.Count();
@@ -326,7 +326,7 @@ namespace MyTempProject.WmtRain
             var twentyFourHoursAgo = now.AddHours(-24);
             var addvcdArray = (input.addvcdArray == null) ? new string[] { } : input.addvcdArray.ToArray();
             var addvcdArrayLength = addvcdArray.Length;
-            var query = from allData in (from site in _stnInfoBRepository.GetAll().Where(s => addvcdArrayLength == 0 || addvcdArray.Any(a => a == s.addvcd.Substring(0,a.Length)))//.Contains(s.addvcd)
+            var query = from allData in (from site in _stnInfoBRepository.GetAll().Where(s => addvcdArrayLength == 0 || addvcdArray.Any(a => a == s.addvcd.Substring(0, a.Length)))//.Contains(s.addvcd)
                                          join rain in _wmtRainRepository.GetAll().Where(r => r.collecttime != null && r.collecttime >= beforeYesterday && r.collecttime < now) on site.areaCode equals rain.stcd into temp
                                          from cr in temp.DefaultIfEmpty()
                                          join admin in _administrationBReposity.GetAll() on site.addvcd equals admin.Id into relation
@@ -348,12 +348,14 @@ namespace MyTempProject.WmtRain
                             areaName = lst.Key.areaName,
                             areaCode = lst.Key.areaCode,
                             addvname = lst.Key.addvname,
-                            total_1 = lst.Where(t => t.collecttime > oneHourAgo).Sum(c => c.paravalue) == null ? 0 : lst.Sum(c => c.paravalue),
-                            total_3 = lst.Where(t => t.collecttime > threeHoursAgo).Sum(c => c.paravalue) == null ? 0 : lst.Sum(c => c.paravalue),
-                            total_6 = lst.Where(t => t.collecttime > sixHoursAgo).Sum(c => c.paravalue) == null ? 0 : lst.Sum(c => c.paravalue),
-                            total_12 = lst.Where(t => t.collecttime > twelveHoursAgo).Sum(c => c.paravalue) == null ? 0 : lst.Sum(c => c.paravalue),
-                            total_24 = lst.Where(t => t.collecttime > twentyFourHoursAgo).Sum(c => c.paravalue) == null ? 0 : lst.Sum(c => c.paravalue),
-                            total_48 = lst.Sum(c => c.paravalue) == null ? 0 : lst.Sum(c => c.paravalue)
+                            total_1 = lst.Where(t => t.collecttime > oneHourAgo).Max(c => c.paravalue),// - lst.Where(t => t.collecttime > oneHourAgo).Min(c => c.paravalue),
+                            total_3 = lst.Where(t => t.collecttime > threeHoursAgo).Max(c => c.paravalue),// - lst.Where(t => t.collecttime > threeHoursAgo).Min(c => c.paravalue),//lst.Where(t => t.collecttime > threeHoursAgo).Sum(c => c.paravalue) == null ? 0 : lst.Sum(c => c.paravalue),
+                            total_6 = lst.Where(t => t.collecttime > sixHoursAgo).Max(c => c.paravalue),// - lst.Where(t => t.collecttime > sixHoursAgo).Min(c => c.paravalue),//lst.Where(t => t.collecttime > sixHoursAgo).Sum(c => c.paravalue) == null ? 0 : lst.Sum(c => c.paravalue),
+                            total_12 = lst.Where(t => t.collecttime > twelveHoursAgo).Max(c => c.paravalue),// - lst.Where(t => t.collecttime > twelveHoursAgo).Min(c => c.paravalue),//lst.Where(t => t.collecttime > twelveHoursAgo).Sum(c => c.paravalue) == null ? 0 : lst.Sum(c => c.paravalue),
+                            total_24 = lst.Where(t => t.collecttime > twentyFourHoursAgo).Max(c => c.paravalue),// - lst.Where(t => t.collecttime > twentyFourHoursAgo).Min(c => c.paravalue),//lst.Where(t => t.collecttime > twentyFourHoursAgo).Sum(c => c.paravalue) == null ? 0 : lst.Sum(c => c.paravalue),
+                            total_48 = lst.Max(c => c.paravalue),// - lst.Min(c => c.paravalue),//lst.Sum(c => c.paravalue) == null ? 0 : lst.Sum(c => c.paravalue)
+                            //total_1 = lst.Min(c => c.paravalue),
+                            //total_3 = lst.Max(c => c.paravalue)
                         };
             var result = query.ToList();
             var totla = query.Count();
