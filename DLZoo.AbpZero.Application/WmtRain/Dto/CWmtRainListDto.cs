@@ -31,11 +31,13 @@ namespace MyTempProject.WmtRain.Dto
         public virtual string uniquemark { get; set; }
         public virtual DateTime gentm { get; set; }
     }
- 
+
 
     public class CWmtRainTotalDto
     {
-        public virtual string addvname { get; set; }
+        public virtual string addvName { get; set; }
+        public virtual int num { get; set; }
+        //public virtual string areaName { get; set; }
         public virtual double? total { get; set; }
     }
     public class CWmtRainTotalByHoursDto
