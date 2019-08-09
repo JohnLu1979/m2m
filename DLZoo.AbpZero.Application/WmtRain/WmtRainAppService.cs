@@ -384,8 +384,12 @@ namespace MyTempProject.WmtRain
                             //total_1 = lst.Min(c => c.paravalue),
                             //total_3 = lst.Max(c => c.paravalue)
                         };
-            var result = query.ToList();
             var totla = query.Count();
+            if (input.pageNumber.HasValue && input.pageNumber.Value > 0 && input.pageSize.HasValue)
+            {
+                query = query.OrderByDescending(c => c.areaCode).Take(input.pageSize.Value * input.pageNumber.Value).Skip(input.pageSize.Value * (input.pageNumber.Value - 1));
+            }
+            var result = query.ToList();
             return new CDataResults<CWmtRainTotalByHoursDto>()
             {
                 IsSuccess = true,
