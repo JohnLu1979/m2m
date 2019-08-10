@@ -34,7 +34,7 @@ namespace MyTempProject.WmtRain
             IRepository<Entities.CVisitRecord, int> VisitRecordRepository,
             IRepository<Entities.CRelation, int> relationReposity,
             IRepository<Entities.CAdministrationB, string> administrationBReposity
-        
+
             ) : base(CustomerRepository, IpRepository, VisitRecordRepository)
         {
 
@@ -95,6 +95,7 @@ namespace MyTempProject.WmtRain
             var dataList = query.ToList();
             List<CWmtRainDetailListDto> hourDataList = new List<CWmtRainDetailListDto>();
 
+            if (query.Count() > 0)
             if (dataList != null) {
                 foreach (var item in dataList)
                 {
@@ -134,6 +135,8 @@ namespace MyTempProject.WmtRain
                     Data = null
                 };
             }
+
+
         }
             
         public CDataResults<CWmtRainDetailListDto> GetWmtRainDetailFromMobile(CWmtRainInput input)
@@ -144,7 +147,7 @@ namespace MyTempProject.WmtRain
             //Extract data from DB
             var query = from r in _wmtRainFiveMinutesRepository.GetAll()
                         join s in _stnInfoBRepository.GetAll() on r.stcd equals s.areaCode
-            //            join res in _relationReposity.GetAll() on s.Id equals res.site_id
+                        //join res in _relationReposity.GetAll() on s.Id equals res.site_id
                         orderby r.tm
                         select new CWmtRainDetailListDto
                         {
@@ -269,7 +272,7 @@ namespace MyTempProject.WmtRain
                                                addvName = lst.Key.addvName,
                                                areaName = lst.Key.areaName,
 
-                                               total = lst.Where(c => c.paraValue != null).Sum(c=>c.paraValue)
+                                               total = lst.Sum(c => c.paraValue)//(lst.Where(c => c.paraValue != null).Count() > 1) ? lst.Max(c => c.paraValue) - lst.Min(c => c.paraValue) : lst.Max(c => c.paraValue)//lst.Sum(c => c.paravalue) == null ? 0 : lst.Sum(c => c.paravalue)
                                            })
                          group regTotal by regTotal.addvName into regList
                          select new CWmtRainTotalDto
@@ -277,44 +280,22 @@ namespace MyTempProject.WmtRain
                              addvName = regList.Key,
                              num = regList.Count(),
                              total = regList.Sum(c => c.total == null ? 0 : c.total)
+                             //cal = Math.Round(Convert.ToDouble(regList.Sum(c => c.total == null ? 0 : c.total)) / regList.Count(), 2)
                          }).OrderBy(t => t.total);
-            //var query = (from regTotal in (from allData in (from region in _administrationBReposity.GetAll()
-            //                                               where region.parentcd.Equals("2102")
-            //                                               join site in _stnInfoBRepository.GetAll() on region.Id equals site.addvcd into temp
-            //                                               from cr in temp.DefaultIfEmpty()
-            //                                               join rain in _wmtRainRepository.GetAll().Where(c => c.collecttime >= input.fromTime && c.collecttime <= input.toTime) on cr.areaCode equals rain.stcd
-            //                                               into relation
-            //                                               from data in relation.DefaultIfEmpty()
-            //                                               select new
-            //                                               {
-            //                                                   addvName = region.addvname,
-            //                                                   areaName = cr.areaName,
-            //                                                   paraValue = data.paravalue
-            //                                               })
-            //                              group allData by new { allData.addvName, allData.areaName } into lst
-            //                              select new
-            //                              {
-            //                                  addvName = lst.Key.addvName,
-            //                                  areaName = lst.Key.areaName,
-
-            //                                  total = (lst.Where(c => c.paraValue != null).Count() > 1) ? lst.Max(c => c.paraValue) - lst.Min(c => c.paraValue) : lst.Max(c => c.paraValue)//lst.Sum(c => c.paravalue) == null ? 0 : lst.Sum(c => c.paravalue)
-            //                              })
-            //            group regTotal by regTotal.addvName into regList
-            //            select new CWmtRainTotalDto
-            //            {
-            //                addvName = regList.Key,
-            //                num=regList.Count(),
-            //                total = regList.Sum(c => c.total == null ? 0 : c.total)
-            //            }).OrderBy(t=>t.total);
             var result = query.ToList();
-            var total = query.Count();
+            result.ForEach(act =>
+            {
+                act.cal = Math.Round(Convert.ToDouble(act.total / act.num), 2);
+            });
 
+            var total = query.Count();
+            var results = result.OrderBy(t => t.cal);
             //return null;
             return new CDataResults<CWmtRainTotalDto>()
             {
                 IsSuccess = true,
                 ErrorMessage = null,
-                Data = result,
+                Data = results.ToList(),
                 Total = total
             };
         }
@@ -324,7 +305,7 @@ namespace MyTempProject.WmtRain
                                           where region.parentcd.Equals("2102")
                                           join site in _stnInfoBRepository.GetAll() on region.Id equals site.addvcd into temp
                                           from cr in temp.DefaultIfEmpty()
-                                          join rain in _wmtRainFiveMinutesRepository.GetAll().Where(c => c.tm >= input.fromTime && c.tm <= input.toTime) on cr.areaCode equals rain.stcd
+                                         join rain in _wmtRainFiveMinutesRepository.GetAll().Where(c => c.tm >= input.fromTime && c.tm <= input.toTime) on cr.areaCode equals rain.stcd
                                           into relation
                                           from data in relation.DefaultIfEmpty()
                                           select new
@@ -400,6 +381,8 @@ namespace MyTempProject.WmtRain
                                          from cr in temp.DefaultIfEmpty()
                                          join admin in _administrationBReposity.GetAll() on site.addvcd equals admin.Id into relation
                                          from data in relation.DefaultIfEmpty()
+                                             //where cr.collecttime != null && cr.collecttime >= beforeYesterday && cr.collecttime < now &&
+                                             // (addvcdArrayLength == 0 || addvcdArray.Contains(site.addvcd))//((addvcdArray == null)? ((input.addvcd ==null) ? true : site.addvcd.StartsWith(input.addvcd)) : addvcdArray.Contains(site.addvcd))
                                          select new
                                          {
                                              areaCode = site.areaCode,

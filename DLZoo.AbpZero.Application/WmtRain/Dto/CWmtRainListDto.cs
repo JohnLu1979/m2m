@@ -39,6 +39,7 @@ namespace MyTempProject.WmtRain.Dto
         public virtual int num { get; set; }
         //public virtual string areaName { get; set; }
         public virtual double? total { get; set; }
+        public virtual double cal { get; set; }
     }
     public class CWmtRainTotalByHoursDto
     {
