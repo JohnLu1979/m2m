@@ -120,6 +120,7 @@
     <Compile Include="Entities\Temp\CTableClass.cs" />
     <Compile Include="Features\AppFeatureProvider.cs" />
     <Compile Include="Features\AppFeatures.cs" />
+    <Compile Include="Entities\CWmtRain_FiveMinute.cs" />
     <Compile Include="IAppFolders.cs" />
     <Compile Include="Localization\CultureHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

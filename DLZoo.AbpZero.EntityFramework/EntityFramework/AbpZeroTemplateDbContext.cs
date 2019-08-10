@@ -21,6 +21,7 @@ namespace MyTempProject.EntityFramework
         public virtual IDbSet<CStnParaR> CStnParaRObjects { get; set; }
         public virtual IDbSet<CAdministrationB> CAdministrationBObjects { get; set; }
         public virtual IDbSet<CWmtRain> CWmtRainObjects { get; set; }
+        public virtual IDbSet<CWmtRain_FiveMinute> CWmtRain_FiveMinuteObjects { get; set; }
         public virtual IDbSet<CWmtRiver> CWmtRiverObjects { get; set; }
         public virtual IDbSet<CWmtRsvr> CWmtRsvrObjects { get; set; }
         public virtual IDbSet<CWmtSoilMoisture> CWmtSoilMoistrueObjects { get; set; }
