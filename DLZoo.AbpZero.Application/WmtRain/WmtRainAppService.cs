@@ -362,20 +362,6 @@ namespace MyTempProject.WmtRain
             var twentyFourHoursAgo = now.AddHours(-24);
             var addvcdArray = (input.addvcdArray == null) ? new string[] { } : input.addvcdArray.ToArray();
             var addvcdArrayLength = addvcdArray.Length;
-            var tt = from site in _stnInfoBRepository.GetAll().Where(s => addvcdArrayLength == 0 || addvcdArray.Any(a => a == s.addvcd.Substring(0, a.Length)))//.Contains(s.addvcd)
-                     join rain in _wmtRainFiveMinutesRepository.GetAll().Where(r => r.tm != null && r.tm >= beforeYesterday && r.tm < now) on site.areaCode equals rain.stcd into temp
-                     from cr in temp.DefaultIfEmpty()
-                     join admin in _administrationBReposity.GetAll() on site.addvcd equals admin.Id into relation
-                     from data in relation.DefaultIfEmpty()
-                     select new
-                     {
-                         areaCode = site.areaCode,
-                         areaName = site.areaName,
-                         addvcd = site.addvcd,
-                         addvname = data.addvname,
-                         collecttime = cr.tm,
-                         paravalue = cr.drp
-                     };
             var query = from allData in (from site in _stnInfoBRepository.GetAll().Where(s => addvcdArrayLength == 0 || addvcdArray.Any(a => a == s.addvcd.Substring(0, a.Length)))//.Contains(s.addvcd)
                                          join rain in _wmtRainFiveMinutesRepository.GetAll().Where(r => r.tm != null && r.tm >= beforeYesterday && r.tm < now) on site.areaCode equals rain.stcd into temp
                                          from cr in temp.DefaultIfEmpty()
