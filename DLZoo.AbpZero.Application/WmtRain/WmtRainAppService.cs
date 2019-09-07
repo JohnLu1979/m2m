@@ -80,7 +80,7 @@ namespace MyTempProject.WmtRain
                 Total = query.Count()
             };
         }
-        public CDataResult<CWmtRainDetailListDto> GetMaxWmtRainHourTotalFromMobile(CWmtRainInput input)
+        public CDataResult<CWmtRainDetailListDto> GetMaxWmtRainDayTotalFromMobile(CWmtRainInput input)
         {
             var query = from r in _wmtRainFiveMinutesRepository.GetAll()
                         join s in _stnInfoBRepository.GetAll() on r.stcd equals s.areaCode
@@ -94,28 +94,126 @@ namespace MyTempProject.WmtRain
                         };
             var dataList = query.ToList();
             List<CWmtRainDetailListDto> hourDataList = new List<CWmtRainDetailListDto>();
-
-            if (query.Count() > 0)
-            if (dataList != null) {
-                foreach (var item in dataList)
-                {
-                    var time = item.time.Date.AddHours(item.time.Hour);
-                    if (hourDataList.Any(r => r.collecttime == time && r.areaCode == item.areaCode))
-                    {
-                        hourDataList.Find(r => r.collecttime == time).paravalue += item.paravalue;
-                    }
-                    else
-                    {
-                        hourDataList.Add(new CWmtRainDetailListDto()
-                        {
-                            areaCode = item.areaCode,
-                            areaName = item.areaName,
-                            collecttime = time,
-                            paravalue = item.paravalue
-                        });
-                    }
-                }
+            var timelist = dataList.GroupBy(c => new { c.areaCode, c.areaName, c.time.Date }).ToList();
+            foreach (var item in timelist)
+            {
+                CWmtRainDetailListDto dto = new CWmtRainDetailListDto() {
+                    areaCode = item.Key.areaCode,
+                    areaName = item.Key.areaName,
+                    collecttime = item.Key.Date,
+                    paravalue = item.Sum(c => c.paravalue)
+                };
+                hourDataList.Add(dto);
             }
+            //if (query.Count() > 0)
+            //    if (dataList != null)
+            //    {
+            //        foreach (var item in dataList)
+            //        {
+            //            var time = item.time.Date.AddHours(item.time.Hour);
+            //            if (hourDataList.Any(r => r.collecttime == time && r.areaCode == item.areaCode))
+            //            {
+            //                hourDataList.Find(r => r.collecttime == time).paravalue += item.paravalue;
+            //            }
+            //            else
+            //            {
+            //                hourDataList.Add(new CWmtRainDetailListDto()
+            //                {
+            //                    areaCode = item.areaCode,
+            //                    areaName = item.areaName,
+            //                    collecttime = time,
+            //                    paravalue = item.paravalue
+            //                });
+            //            }
+            //        }
+            //    }
+            if (hourDataList.Count() > 0)//.Count() > 0
+            {
+                var maxResult = hourDataList.OrderByDescending(r => r.paravalue).FirstOrDefault();
+                return new CDataResult<CWmtRainDetailListDto>()
+                {
+                    IsSuccess = true,
+                    ErrorMessage = null,
+                    Data = maxResult
+                };
+            }
+            else
+            {
+                return new CDataResult<CWmtRainDetailListDto>()
+                {
+                    IsSuccess = true,
+                    ErrorMessage = null,
+                    Data = null
+                };
+            }
+        }
+        public CDataResult<CWmtRainDetailListDto> GetMaxWmtRainHourTotalFromMobile(CWmtRainInput input)
+        {
+            //var query = from allData in (from r in _wmtRainFiveMinutesRepository.GetAll()
+            //                join s in _stnInfoBRepository.GetAll() on r.stcd equals s.areaCode
+            //                where (input.fromTime == null || r.tm > input.fromTime)
+            //                select new
+            //                {
+            //                    areaCode = s.areaCode,
+            //                    areaName = s.areaName,
+            //                    paravalue = r.drp,
+            //                    time = r.tm.Date.AddHours(r.tm.Hour)
+            //                })
+            //            group allData by new { allData.areaCode, allData.areaName,allData.time } into lst
+            //            select new
+            //            {
+            //                areaCode = lst.Key.areaCode,
+            //                areaName = lst.Key.areaName,
+            //                paravalue = lst.Sum(c=>c.paravalue),
+            //                time = lst.Key.time
+            //            };
+            var query = from r in _wmtRainFiveMinutesRepository.GetAll()
+                        join s in _stnInfoBRepository.GetAll() on r.stcd equals s.areaCode
+                        where (input.fromTime == null || r.tm > input.fromTime)
+                        select new
+                        {
+                            areaCode = s.areaCode,
+                            areaName = s.areaName,
+                            paravalue = r.drp,
+                            time = r.tm
+                        };
+            var dataList = query.ToList();
+            List<CWmtRainDetailListDto> hourDataList = new List<CWmtRainDetailListDto>();
+
+            var timelist = dataList.GroupBy(c => new { areaCode = c.areaCode, areaName = c.areaName, Date = c.time.Date.AddHours(c.time.Hour) }).ToList();
+            foreach (var item in timelist)
+            {
+                CWmtRainDetailListDto dto = new CWmtRainDetailListDto()
+                {
+                    areaCode = item.Key.areaCode,
+                    areaName = item.Key.areaName,
+                    collecttime = item.Key.Date,
+                    paravalue = item.Sum(c => c.paravalue)
+                };
+                hourDataList.Add(dto);
+            }
+
+            //if (query.Count() > 0)
+            //if (dataList != null) {
+            //    foreach (var item in dataList)
+            //    {
+            //        var time = item.time.Date.AddHours(item.time.Hour);
+            //        if (hourDataList.Any(r => r.collecttime == time && r.areaCode == item.areaCode))
+            //        {
+            //            hourDataList.Find(r => r.collecttime == time).paravalue += item.paravalue;
+            //        }
+            //        else
+            //        {
+            //            hourDataList.Add(new CWmtRainDetailListDto()
+            //            {
+            //                areaCode = item.areaCode,
+            //                areaName = item.areaName,
+            //                collecttime = time,
+            //                paravalue = item.paravalue
+            //            });
+            //        }
+            //    }
+            //}
             if (hourDataList.Count() > 0)//.Count() > 0
             {
                 var maxResult = hourDataList.OrderByDescending(r => r.paravalue).FirstOrDefault();
@@ -431,7 +529,37 @@ namespace MyTempProject.WmtRain
             var totla = query.Count();
             if (input.pageNumber.HasValue && input.pageNumber.Value > 0 && input.pageSize.HasValue)
             {
-                query = query.OrderByDescending(c => c.areaCode).Take(input.pageSize.Value * input.pageNumber.Value).Skip(input.pageSize.Value * (input.pageNumber.Value - 1));
+                if (input.sortHour.HasValue && input.sortHour.Value == 1)
+                {
+                    query = query.OrderByDescending(c => c.total_1).Take(input.pageSize.Value * input.pageNumber.Value).Skip(input.pageSize.Value * (input.pageNumber.Value - 1));
+                }
+                else if (input.sortHour.HasValue && input.sortHour.Value == 3)
+                {
+                    query = query.OrderByDescending(c => c.total_3).Take(input.pageSize.Value * input.pageNumber.Value).Skip(input.pageSize.Value * (input.pageNumber.Value - 1));
+                }
+                else if (input.sortHour.HasValue && input.sortHour.Value == 6)
+                {
+                    query = query.OrderByDescending(c => c.total_6).Take(input.pageSize.Value * input.pageNumber.Value).Skip(input.pageSize.Value * (input.pageNumber.Value - 1));
+                }
+                else if (input.sortHour.HasValue && input.sortHour.Value == 12)
+                {
+                    query = query.OrderByDescending(c => c.total_12).Take(input.pageSize.Value * input.pageNumber.Value).Skip(input.pageSize.Value * (input.pageNumber.Value - 1));
+                }
+                else if (input.sortHour.HasValue && input.sortHour.Value == 24)
+                {
+                    query = query.OrderByDescending(c => c.total_24).Take(input.pageSize.Value * input.pageNumber.Value).Skip(input.pageSize.Value * (input.pageNumber.Value - 1));
+                }
+                else if (input.sortHour.HasValue && input.sortHour.Value == 48)
+                {
+                    query = query.OrderByDescending(c => c.total_48).Take(input.pageSize.Value * input.pageNumber.Value).Skip(input.pageSize.Value * (input.pageNumber.Value - 1));
+                }
+                else
+                {
+                    query = query.OrderByDescending(c => c.total_1).Take(input.pageSize.Value * input.pageNumber.Value).Skip(input.pageSize.Value * (input.pageNumber.Value - 1));
+                }
+            }
+            else {
+                query = query.OrderByDescending(c => c.total_1);
             }
             var result = query.ToList();
             return new CDataResults<CWmtRainTotalByHoursDto>()

@@ -32,6 +32,10 @@ namespace MyTempProject.WmtRain.Dto
         public virtual DateTime gentm { get; set; }
     }
 
+    public class CWmtMaxMinRainDto {
+        public virtual CWmtRainDetailListDto Max { get; set; }
+        public virtual CWmtRainDetailListDto Min { get; set; }
+    }
 
     public class CWmtRainTotalDto
     {
