@@ -32,7 +32,8 @@ namespace MyTempProject.WmtRain.Dto
         public virtual DateTime gentm { get; set; }
     }
 
-    public class CWmtMaxMinRainDto {
+    public class CWmtMaxMinRainDto
+    {
         public virtual CWmtRainDetailListDto Max { get; set; }
         public virtual CWmtRainDetailListDto Min { get; set; }
     }
@@ -42,7 +43,9 @@ namespace MyTempProject.WmtRain.Dto
         public virtual string addvcd { get; set; }
         public virtual string addvName { get; set; }
         public virtual int num { get; set; }
-        //public virtual string areaName { get; set; }
+        public virtual string areaName { get; set; }
+
+        public virtual string areaCode { get; set; }
         public virtual double? total { get; set; }
         public virtual double cal { get; set; }
     }
@@ -63,6 +66,7 @@ namespace MyTempProject.WmtRain.Dto
     {
         public virtual string addvName { get; set; }
         public virtual string areaName { get; set; }
+        public virtual string areaCode { get; set; }
         public virtual double? total { get; set; }
     }
 }

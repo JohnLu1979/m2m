@@ -97,7 +97,8 @@ namespace MyTempProject.WmtRain
             var timelist = dataList.GroupBy(c => new { c.areaCode, c.areaName, c.time.Date }).ToList();
             foreach (var item in timelist)
             {
-                CWmtRainDetailListDto dto = new CWmtRainDetailListDto() {
+                CWmtRainDetailListDto dto = new CWmtRainDetailListDto()
+                {
                     areaCode = item.Key.areaCode,
                     areaName = item.Key.areaName,
                     collecttime = item.Key.Date,
@@ -236,7 +237,7 @@ namespace MyTempProject.WmtRain
 
 
         }
-            
+
         public CDataResults<CWmtRainDetailListDto> GetWmtRainDetailFromMobile(CWmtRainInput input)
         {
             //input.stcd = "00065156";
@@ -363,22 +364,25 @@ namespace MyTempProject.WmtRain
                                                                 addvcd = region.Id,
                                                                 addvName = region.addvname,
                                                                 areaName = cr.areaName,
+                                                                areaCode = cr.areaCode,
                                                                 paraValue = data.drp
                                                             })
-                                           group allData by new { allData.addvcd, allData.addvName, allData.areaName } into lst
+                                           group allData by new { allData.addvcd, allData.addvName, allData.areaName, allData.areaCode } into lst
                                            select new
                                            {
                                                addvcd = lst.Key.addvcd,
                                                addvName = lst.Key.addvName,
                                                areaName = lst.Key.areaName,
-
+                                               areaCode = lst.Key.areaCode,
                                                total = lst.Sum(c => c.paraValue)//(lst.Where(c => c.paraValue != null).Count() > 1) ? lst.Max(c => c.paraValue) - lst.Min(c => c.paraValue) : lst.Max(c => c.paraValue)//lst.Sum(c => c.paravalue) == null ? 0 : lst.Sum(c => c.paravalue)
                                            })
-                         group regTotal by new { regTotal.addvcd, regTotal.addvName } into regList
+                         group regTotal by new { regTotal.addvcd, regTotal.addvName, regTotal.areaName, regTotal.areaCode } into regList
                          select new CWmtRainTotalDto
                          {
                              addvcd = regList.Key.addvcd,
                              addvName = regList.Key.addvName,
+                             areaName = regList.Key.areaName,
+                             areaCode = regList.Key.areaCode,
                              num = regList.Count(),
                              total = regList.Sum(c => c.total == null ? 0 : c.total)
                              //cal = Math.Round(Convert.ToDouble(regList.Sum(c => c.total == null ? 0 : c.total)) / regList.Count(), 2)
@@ -411,42 +415,24 @@ namespace MyTempProject.WmtRain
                                           where region.parentcd.Equals("2102")
                                           join site in _stnInfoBRepository.GetAll() on region.Id equals site.addvcd into temp
                                           from cr in temp.DefaultIfEmpty()
-                                         join rain in _wmtRainFiveMinutesRepository.GetAll().Where(c => c.tm >= input.fromTime && c.tm <= input.toTime) on cr.areaCode equals rain.stcd
-                                          into relation
+                                          join rain in _wmtRainFiveMinutesRepository.GetAll().Where(c => c.tm >= input.fromTime && c.tm <= input.toTime) on cr.areaCode equals rain.stcd
+                                           into relation
                                           from data in relation.DefaultIfEmpty()
                                           select new
                                           {
                                               addvName = region.addvname,
+                                              areaCode=cr.areaCode,
                                               areaName = cr.areaName,
                                               paraValue = data.drp
                                           })
-                         group allData by new { allData.addvName, allData.areaName } into lst
+                         group allData by new { allData.addvName, allData.areaName,allData.areaCode } into lst
                          select new CWmtRainTotalBySiteDto
                          {
                              addvName = lst.Key.addvName,
                              areaName = lst.Key.areaName,
+                             areaCode=lst.Key.areaCode,
                              total = lst.Where(c => c.paraValue != null).Sum(c => c.paraValue)
-                         }).OrderByDescending(t => t.total);
-            //var query = (from allData in (from region in _administrationBReposity.GetAll()
-            //                              where region.parentcd.Equals("2102")
-            //                              join site in _stnInfoBRepository.GetAll() on region.Id equals site.addvcd into temp
-            //                              from cr in temp.DefaultIfEmpty()
-            //                              join rain in _wmtRainRepository.GetAll().Where(c => c.collecttime >= input.fromTime && c.collecttime <= input.toTime) on cr.areaCode equals rain.stcd
-            //                              into relation
-            //                              from data in relation.DefaultIfEmpty()
-            //                              select new
-            //                              {
-            //                                  addvName = region.addvname,
-            //                                  areaName = cr.areaName,
-            //                                  paraValue = data.paravalue
-            //                              })
-            //             group allData by new { allData.addvName, allData.areaName } into lst
-            //             select new CWmtRainTotalBySiteDto
-            //             {
-            //                 addvName = lst.Key.addvName,
-            //                 areaName = lst.Key.areaName,
-            //                 total = (lst.Where(c => c.paraValue != null).Count() > 1) ? lst.Max(c => c.paraValue) - lst.Min(c => c.paraValue) : lst.Max(c => c.paraValue) == null ? 0 : (lst.Where(c => c.paraValue != null).Count() > 1) ? lst.Max(c => c.paraValue) - lst.Min(c => c.paraValue) : lst.Max(c => c.paraValue)//lst.Sum(c => c.paravalue) == null ? 0 : lst.Sum(c => c.paravalue)
-            //             }).OrderByDescending(t => t.total);
+                         }).OrderByDescending(t => t.total);  
             var result = query.ToList();
             var totla = query.Count();
             return new CDataResults<CWmtRainTotalBySiteDto>()
@@ -490,7 +476,7 @@ namespace MyTempProject.WmtRain
                             areaName = lst.Key.areaName,
                             areaCode = lst.Key.areaCode,
                             addvname = lst.Key.addvname,
-                            total_1 = lst.Where(t => t.collecttime > oneHourAgo && t.paravalue != null).Sum(c=> c.paravalue),
+                            total_1 = lst.Where(t => t.collecttime > oneHourAgo && t.paravalue != null).Sum(c => c.paravalue),
                             total_3 = lst.Where(t => t.collecttime > threeHoursAgo && t.paravalue != null).Sum(c => c.paravalue),
                             total_6 = lst.Where(t => t.collecttime > sixHoursAgo && t.paravalue != null).Sum(c => c.paravalue),
                             total_12 = lst.Where(t => t.collecttime > twelveHoursAgo && t.paravalue != null).Sum(c => c.paravalue),
@@ -566,7 +552,8 @@ namespace MyTempProject.WmtRain
                     query = query.OrderByDescending(c => c.total_1).Take(input.pageSize.Value * input.pageNumber.Value).Skip(input.pageSize.Value * (input.pageNumber.Value - 1));
                 }
             }
-            else {
+            else
+            {
                 query = query.OrderByDescending(c => c.total_1);
             }
             var result = query.ToList();
