@@ -39,6 +39,7 @@ namespace MyTempProject.WmtRain.Dto
 
     public class CWmtRainTotalDto
     {
+        public virtual string addvcd { get; set; }
         public virtual string addvName { get; set; }
         public virtual int num { get; set; }
         //public virtual string areaName { get; set; }

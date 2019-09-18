@@ -360,27 +360,35 @@ namespace MyTempProject.WmtRain
                                                             from data in relation.DefaultIfEmpty()
                                                             select new
                                                             {
+                                                                addvcd = region.Id,
                                                                 addvName = region.addvname,
                                                                 areaName = cr.areaName,
                                                                 paraValue = data.drp
                                                             })
-                                           group allData by new { allData.addvName, allData.areaName } into lst
+                                           group allData by new { allData.addvcd, allData.addvName, allData.areaName } into lst
                                            select new
                                            {
+                                               addvcd = lst.Key.addvcd,
                                                addvName = lst.Key.addvName,
                                                areaName = lst.Key.areaName,
 
                                                total = lst.Sum(c => c.paraValue)//(lst.Where(c => c.paraValue != null).Count() > 1) ? lst.Max(c => c.paraValue) - lst.Min(c => c.paraValue) : lst.Max(c => c.paraValue)//lst.Sum(c => c.paravalue) == null ? 0 : lst.Sum(c => c.paravalue)
                                            })
-                         group regTotal by regTotal.addvName into regList
+                         group regTotal by new { regTotal.addvcd, regTotal.addvName } into regList
                          select new CWmtRainTotalDto
                          {
-                             addvName = regList.Key,
+                             addvcd = regList.Key.addvcd,
+                             addvName = regList.Key.addvName,
                              num = regList.Count(),
                              total = regList.Sum(c => c.total == null ? 0 : c.total)
                              //cal = Math.Round(Convert.ToDouble(regList.Sum(c => c.total == null ? 0 : c.total)) / regList.Count(), 2)
                          }).OrderBy(t => t.total);
             var result = query.ToList();
+
+            if (input.addvcdArray != null && input.addvcdArray.Count > 0)
+            {
+                result = result.Where(c => input.addvcdArray.Contains(c.addvcd)).ToList();
+            }
             result.ForEach(act =>
             {
                 act.cal = Math.Round(Convert.ToDouble(act.total / act.num), 2);
