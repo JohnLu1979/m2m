@@ -80,6 +80,100 @@ namespace MyTempProject.WmtRain
                 Total = query.Count()
             };
         }
+
+        public CDataResult<CWmtRainRegionDetailDto> GetWmtRainRegionDetailFromMobile(CWmtRainInput input)
+        {
+            CWmtRainRegionDetailDto result = new CWmtRainRegionDetailDto();
+            //Get Site Count and rain site count
+            result.stationCount = this._stnInfoBRepository.GetAll().Where(c => c.addvcd == input.addvcd).Count();
+            var query = from r in _wmtRainFiveMinutesRepository.GetAll()
+                        join s in _stnInfoBRepository.GetAll() on r.stcd equals s.areaCode
+                        where ((input.fromTime == null || r.tm > input.fromTime) && s.addvcd == input.addvcd)
+                        select new { areaCode = s.areaCode };
+            result.stationCountRain = query.Distinct().Count();
+
+            // Max Rain
+            var query1 = from r in _wmtRainFiveMinutesRepository.GetAll()
+                        join s in _stnInfoBRepository.GetAll() on r.stcd equals s.areaCode
+                        where ((input.fromTime == null || r.tm > input.fromTime) && s.addvcd == input.addvcd)
+                         select new
+                        {
+                            areaCode = s.areaCode,
+                            areaName = s.areaName,
+                            paravalue = r.drp,
+                            time = r.tm
+                        };
+            var dataList = query1.ToList();
+            List<CWmtRainDetailListDto> hourDataList = new List<CWmtRainDetailListDto>();
+            var timelist = dataList.GroupBy(c => new { c.areaCode, c.areaName, c.time.Date }).ToList();
+            foreach (var item in timelist)
+            {
+                CWmtRainDetailListDto dto = new CWmtRainDetailListDto()
+                {
+                    areaCode = item.Key.areaCode,
+                    areaName = item.Key.areaName,
+                    collecttime = item.Key.Date,
+                    paravalue = item.Sum(c => c.paravalue)
+                };
+                hourDataList.Add(dto);
+            }
+            if (hourDataList.Count() > 0)//.Count() > 0
+            {
+                var maxResult = hourDataList.OrderByDescending(r => r.paravalue).FirstOrDefault();
+                result.maxParavalue = maxResult.paravalue;
+                result.maxParaStation = maxResult.areaName;
+            }
+            else
+            {
+                result.maxParavalue = 0;
+                result.maxParaStation = "";
+            }
+            // Max Rain Hour
+            var query2 = from r in _wmtRainFiveMinutesRepository.GetAll()
+                        join s in _stnInfoBRepository.GetAll() on r.stcd equals s.areaCode
+                        where ((input.fromTime == null || r.tm > input.fromTime) && s.addvcd == input.addvcd)
+                        select new
+                        {
+                            areaCode = s.areaCode,
+                            areaName = s.areaName,
+                            paravalue = r.drp,
+                            time = r.tm
+                        };
+            var dataList2 = query2.ToList();
+            List<CWmtRainDetailListDto> hourDataList2 = new List<CWmtRainDetailListDto>();
+
+            var timelist2 = dataList2.GroupBy(c => new { areaCode = c.areaCode, areaName = c.areaName, Date = c.time.Date.AddHours(c.time.Hour) }).ToList();
+            foreach (var item in timelist2)
+            {
+                CWmtRainDetailListDto dto = new CWmtRainDetailListDto()
+                {
+                    areaCode = item.Key.areaCode,
+                    areaName = item.Key.areaName,
+                    collecttime = item.Key.Date,
+                    paravalue = item.Sum(c => c.paravalue)
+                };
+                hourDataList2.Add(dto);
+            }
+            if (hourDataList2.Count() > 0)
+            {
+                var maxResult = hourDataList2.OrderByDescending(r => r.paravalue).FirstOrDefault();
+                result.maxParavalueHour = maxResult.paravalue;
+                result.maxParaStationHour = maxResult.areaName;
+                result.maxParaTimeHour = maxResult.collecttime;
+            }
+            else
+            {
+                result.maxParavalueHour = 0;
+                result.maxParaStationHour = "";
+                result.maxParaTimeHour = null;
+            }
+            return new CDataResult<CWmtRainRegionDetailDto>()
+             {
+                 IsSuccess = true,
+                 ErrorMessage = null,
+                 Data = result
+             };
+        }
         public CDataResult<CWmtRainDetailListDto> GetMaxWmtRainDayTotalFromMobile(CWmtRainInput input)
         {
             var query = from r in _wmtRainFiveMinutesRepository.GetAll()

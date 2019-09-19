@@ -31,6 +31,20 @@ namespace MyTempProject.WmtRain.Dto
         public virtual string uniquemark { get; set; }
         public virtual DateTime gentm { get; set; }
     }
+    public class CWmtRainRegionDetailDto
+    {
+        //s.areaCode,s.areaName,r.[stcd],[paravalue],[collecttime] ,[systemtime],[uniquemark],[gentm]
+        public virtual string areaCode { get; set; }
+        public virtual string areaName { get; set; }
+        public virtual string stcd { get; set; }
+        public virtual double? maxParavalue { get; set; }
+        public virtual string maxParaStation { get; set; }
+        public virtual double? maxParavalueHour { get; set; }
+        public virtual string maxParaStationHour { get; set; }
+        public virtual DateTime? maxParaTimeHour { get; set; }
+        public int stationCount { get; set; }
+        public int stationCountRain { get; set; }
+    }
 
     public class CWmtMaxMinRainDto
     {

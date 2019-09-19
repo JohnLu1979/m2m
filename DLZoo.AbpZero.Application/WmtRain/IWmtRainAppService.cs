@@ -14,5 +14,6 @@ namespace MyTempProject.WmtRain
         CDataResults<CWmtRainTotalBySiteDto> GetWmtRainTotalBySite(CWmtRainInput input);
         CDataResult<CWmtRainDetailListDto> GetMaxWmtRainHourTotalFromMobile(CWmtRainInput input);
         CDataResult<CWmtRainDetailListDto> GetMaxWmtRainDayTotalFromMobile(CWmtRainInput input);
+        CDataResult<CWmtRainRegionDetailDto> GetWmtRainRegionDetailFromMobile(CWmtRainInput input);
     }
 }
