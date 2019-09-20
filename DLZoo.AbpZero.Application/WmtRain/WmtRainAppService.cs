@@ -461,22 +461,22 @@ namespace MyTempProject.WmtRain
                                                                 areaCode = cr.areaCode,
                                                                 paraValue = data.drp
                                                             })
-                                           group allData by new { allData.addvcd, allData.addvName, allData.areaName, allData.areaCode } into lst
+                                           group allData by new { allData.addvcd, allData.addvName } into lst //, allData.areaName, allData.areaCode
                                            select new
                                            {
                                                addvcd = lst.Key.addvcd,
                                                addvName = lst.Key.addvName,
-                                               areaName = lst.Key.areaName,
-                                               areaCode = lst.Key.areaCode,
+                                               //areaName = lst.Key.areaName,
+                                               //areaCode = lst.Key.areaCode,
                                                total = lst.Sum(c => c.paraValue)//(lst.Where(c => c.paraValue != null).Count() > 1) ? lst.Max(c => c.paraValue) - lst.Min(c => c.paraValue) : lst.Max(c => c.paraValue)//lst.Sum(c => c.paravalue) == null ? 0 : lst.Sum(c => c.paravalue)
                                            })
-                         group regTotal by new { regTotal.addvcd, regTotal.addvName, regTotal.areaName, regTotal.areaCode } into regList
+                         group regTotal by new { regTotal.addvcd, regTotal.addvName } into regList//, regTotal.areaName, regTotal.areaCode
                          select new CWmtRainTotalDto
                          {
                              addvcd = regList.Key.addvcd,
                              addvName = regList.Key.addvName,
-                             areaName = regList.Key.areaName,
-                             areaCode = regList.Key.areaCode,
+                             //areaName = regList.Key.areaName,
+                             //areaCode = regList.Key.areaCode,
                              num = regList.Count(),
                              total = regList.Sum(c => c.total == null ? 0 : c.total)
                              //cal = Math.Round(Convert.ToDouble(regList.Sum(c => c.total == null ? 0 : c.total)) / regList.Count(), 2)
