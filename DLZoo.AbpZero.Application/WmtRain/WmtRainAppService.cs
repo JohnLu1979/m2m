@@ -88,7 +88,7 @@ namespace MyTempProject.WmtRain
             result.stationCount = this._stnInfoBRepository.GetAll().Where(c => c.addvcd == input.addvcd).Count();
             var query = from r in _wmtRainFiveMinutesRepository.GetAll()
                         join s in _stnInfoBRepository.GetAll() on r.stcd equals s.areaCode
-                        where ((input.fromTime == null || r.tm > input.fromTime) && s.addvcd == input.addvcd)
+                        where ((input.fromTime == null || r.tm > input.fromTime) && s.addvcd == input.addvcd && r.drp > 0)
                         select new { areaCode = s.areaCode };
             result.stationCountRain = query.Distinct().Count();
 

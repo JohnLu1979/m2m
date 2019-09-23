@@ -2485,46 +2485,46 @@
       <publishTime>08/05/2019 14:07:20</publishTime>
     </File>
     <File Include="bin/MyTempProject.Application.dll">
-      <publishTime>08/12/2019 15:23:59</publishTime>
+      <publishTime>09/23/2019 14:59:23</publishTime>
     </File>
     <File Include="bin/MyTempProject.Application.dll.config">
       <publishTime>08/05/2019 14:07:16</publishTime>
     </File>
     <File Include="bin/MyTempProject.Application.pdb">
-      <publishTime>08/12/2019 15:23:59</publishTime>
+      <publishTime>09/23/2019 14:59:23</publishTime>
     </File>
     <File Include="bin/MyTempProject.Core.dll">
-      <publishTime>08/12/2019 15:23:56</publishTime>
+      <publishTime>09/23/2019 14:59:14</publishTime>
     </File>
     <File Include="bin/MyTempProject.Core.dll.config">
       <publishTime>08/05/2019 14:07:16</publishTime>
     </File>
     <File Include="bin/MyTempProject.Core.pdb">
-      <publishTime>08/12/2019 15:23:56</publishTime>
+      <publishTime>09/23/2019 14:59:14</publishTime>
     </File>
     <File Include="bin/MyTempProject.EntityFramework.dll">
-      <publishTime>08/12/2019 15:23:57</publishTime>
+      <publishTime>09/23/2019 14:59:19</publishTime>
     </File>
     <File Include="bin/MyTempProject.EntityFramework.dll.config">
       <publishTime>08/05/2019 14:07:16</publishTime>
     </File>
     <File Include="bin/MyTempProject.EntityFramework.pdb">
-      <publishTime>08/12/2019 15:23:57</publishTime>
+      <publishTime>09/23/2019 14:59:19</publishTime>
     </File>
     <File Include="bin/MyTempProject.Web.dll">
-      <publishTime>08/12/2019 15:29:39</publishTime>
+      <publishTime>09/23/2019 15:01:19</publishTime>
     </File>
     <File Include="bin/MyTempProject.Web.pdb">
-      <publishTime>08/12/2019 15:29:39</publishTime>
+      <publishTime>09/23/2019 15:01:19</publishTime>
     </File>
     <File Include="bin/MyTempProject.WebApi.dll">
-      <publishTime>08/12/2019 15:24:00</publishTime>
+      <publishTime>09/23/2019 14:59:26</publishTime>
     </File>
     <File Include="bin/MyTempProject.WebApi.dll.config">
       <publishTime>08/05/2019 14:07:18</publishTime>
     </File>
     <File Include="bin/MyTempProject.WebApi.pdb">
-      <publishTime>08/12/2019 15:24:00</publishTime>
+      <publishTime>09/23/2019 14:59:26</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
       <publishTime>08/05/2019 14:07:20</publishTime>
@@ -10834,7 +10834,7 @@
       <publishTime>08/05/2019 14:07:17</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>08/12/2019 15:24:05</publishTime>
+      <publishTime>09/23/2019 15:01:21</publishTime>
     </File>
   </ItemGroup>
 </Project>
