@@ -105,14 +105,13 @@ namespace MyTempProject.WmtRain
                          };
             var dataList = query1.ToList();
             List<CWmtRainDetailListDto> hourDataList = new List<CWmtRainDetailListDto>();
-            var timelist = dataList.GroupBy(c => new { c.areaCode, c.areaName, c.time.Date }).ToList();
+            var timelist = dataList.GroupBy(c => new { c.areaCode, c.areaName }).ToList();
             foreach (var item in timelist)
             {
                 CWmtRainDetailListDto dto = new CWmtRainDetailListDto()
                 {
                     areaCode = item.Key.areaCode,
                     areaName = item.Key.areaName,
-                    collecttime = item.Key.Date,
                     paravalue = item.Sum(c => c.paravalue)
                 };
                 hourDataList.Add(dto);
